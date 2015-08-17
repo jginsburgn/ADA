@@ -235,6 +235,7 @@
 				FA8694981B793B8B00DC879F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
