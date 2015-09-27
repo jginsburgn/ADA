@@ -7,9 +7,20 @@
 //
 
 #include <iostream>
+#include "AVLTree.h"
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    srand ((unsigned int)time(NULL));
+    jgn::AVLTree<int> tree;
+    for (int i = 0; i < 40; ++i) {
+        try {
+            tree.Insert(rand() % 100 + 1);
+        } catch (const char * e) {
+            std::cout << e << std::endl;
+        }
+    }
+    tree.PrintAscending();
     return 0;
 }

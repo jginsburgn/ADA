@@ -285,8 +285,8 @@ bool BinaryTree23<T>::search(T e){
     while (location!= nullptr){
         
         if (location->getInfoA() == e || location->getInfoB() == e){
-            std::cout << "nivel " << nivel << std::endl;
-            std::cout << "altura " << nivel-1 << std::endl;
+            //std::cout << "nivel " << nivel << std::endl;
+            //std::cout << "altura " << nivel-1 << std::endl;
             return true;
         }else{
             if (location->getIsFull()){
@@ -317,20 +317,22 @@ bool BinaryTree23<T>::search(T e){
 }
 
 template <class T>
-int BinaryTreeRB<T>::height(Node<T>* node) {
+int BinaryTree23<T>::height(Node<T>* node) {
 	if (!node)
 		return -1;
 	else
 		return std::max(height(node->getLeft()), height(node->getRight())) + 1;
 }
 
-int BinaryTreeRB<T>::depth(Node<T>* node) {
+template <class T>
+int BinaryTree23<T>::depth(Node<T>* node) {
 	if (!node->getParent())
 		return 0;
 	return depth(node->getParent()) + 1;
 }
 
-int BinaryTreeRB<T>::level(Node<T>* node) {
+template <class T>
+int BinaryTree23<T>::level(Node<T>* node) {
 	return depth(node) + 1;
 }
 

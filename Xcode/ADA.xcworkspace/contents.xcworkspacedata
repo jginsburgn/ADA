@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:Helper/Helper.xcodeproj">
+   </FileRef>
    <Group
       location = "container:"
       name = "Sorting Algorithms">
       <FileRef
+         location = "group:AllSortingAlgorithms/AllSortingAlgorithms.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:BubbleSort/BubbleSort.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Tree Algorithms">
+      <FileRef
+         location = "group:Tree Algorithms General Files">
+      </FileRef>
+      <FileRef
+         location = "group:BTreeMemoryAttempt/BTreeMemoryAttempt.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:23Tree/23Tree.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:AVLTree/AVLTree.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:BinarySearchTree/BinarySearchTree.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:AVL,B,RB,2-3/AVL,B,RB,2-3.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:BTree/BTree.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:TimingOfSearchingTreeAlgorithms/TimingOfSearchingTreeAlgorithms.xcodeproj">
       </FileRef>
    </Group>
 </Workspace>

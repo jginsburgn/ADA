@@ -25,6 +25,11 @@
 /* Begin PBXFileReference section */
 		FA9116EB1B9EC53C006428D9 /* AVLTree */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AVLTree; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9116EE1B9EC53C006428D9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		FA9116F51B9EC614006428D9 /* AVLTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVLTree.h; sourceTree = "<group>"; };
+		FA9116F61B9EDF2B006428D9 /* rightleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightleft.png; sourceTree = "<group>"; };
+		FA9116F71B9EDF2B006428D9 /* leftleft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftleft.png; sourceTree = "<group>"; };
+		FA9116F81B9EDF2B006428D9 /* leftright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftright.png; sourceTree = "<group>"; };
+		FA9116F91B9EDF2B006428D9 /* rightright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightright.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				FA9116EE1B9EC53C006428D9 /* main.cpp */,
+				FA9116F51B9EC614006428D9 /* AVLTree.h */,
+				FA9116F61B9EDF2B006428D9 /* rightleft.png */,
+				FA9116F71B9EDF2B006428D9 /* leftleft.png */,
+				FA9116F81B9EDF2B006428D9 /* leftright.png */,
+				FA9116F91B9EDF2B006428D9 /* rightright.png */,
 			);
 			path = AVLTree;
 			sourceTree = "<group>";

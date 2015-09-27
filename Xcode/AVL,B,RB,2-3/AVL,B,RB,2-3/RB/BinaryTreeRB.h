@@ -8,49 +8,49 @@
 template <class T>
 class BinaryTreeRB {
     
-    Node<T> *root;
-    Node<T> *flag;
+    RBNode<T> *root;
+    RBNode<T> *flag;
     
-    void fixinsert(Node<T> *third);
-    void fixDelete(Node<T> *first);
+    void fixinsert(RBNode<T> *third);
+    void fixDelete(RBNode<T> *first);
     
-    void RotateS(Node<T> *first);
-    void RotateD(Node<T> *second);
+    void RotateS(RBNode<T> *first);
+    void RotateD(RBNode<T> *second);
     
     
 public:
     
     BinaryTreeRB();
     
-    Node<T>* getRoot();
+    RBNode<T>* getRoot();
     
     void InOrder();
-    void InOrder(Node<T> *n);
+    void InOrder(RBNode<T> *n);
     void postOrder();
-    void postOrder(Node<T> *n);
+    void postOrder(RBNode<T> *n);
     
     void insert(T e);
-    bool isRed(Node<T> *n);
+    bool isRed(RBNode<T> *n);
     bool search(T e);
     void removeInfo (T e);
-    void decreasing(Node<T> *n);
+    void decreasing(RBNode<T> *n);
 
-	int height(Node<T>* node);
-    int depth(Node<T>* node);
-	int level(Node<T>* node);
+	int height(RBNode<T>* RBNode);
+    int depth(RBNode<T>* RBNode);
+	int level(RBNode<T>* RBNode);
 };
 
 template <class T>
 BinaryTreeRB<T>::BinaryTreeRB(){
     root = nullptr;
     T e = 0;
-    Node<T>* f = new Node<T>(e, nullptr, nullptr);
+    RBNode<T>* f = new RBNode<T>(e, nullptr, nullptr);
     f->setColor("negro");
     flag = f;
 }
 
 template <class T>
-Node<T>* BinaryTreeRB<T>::getRoot(){
+RBNode<T>* BinaryTreeRB<T>::getRoot(){
     return root;
 }
 
@@ -60,7 +60,7 @@ void BinaryTreeRB<T>::InOrder(){
 }
 
 template <class T>
-void BinaryTreeRB<T>::InOrder(Node<T> *n){
+void BinaryTreeRB<T>::InOrder(RBNode<T> *n){
     if (n==flag){
         return;
     }
@@ -77,7 +77,7 @@ void BinaryTreeRB<T>::postOrder(){
 }
 
 template <class T>
-void BinaryTreeRB<T>::postOrder(Node<T> *n){
+void BinaryTreeRB<T>::postOrder(RBNode<T> *n){
     if (n==flag){
         return;
     }
@@ -93,13 +93,13 @@ void BinaryTreeRB<T>::insert(T e)
 {
     
     if (root == nullptr){
-        Node<T> *n = new Node<T>(e, nullptr, flag);
+        RBNode<T> *n = new RBNode<T>(e, nullptr, flag);
         n->setColor("negro");
         root = n;
     }
     else{
-        Node<T> *actual = root;
-        Node<T> *anterior = root;
+        RBNode<T> *actual = root;
+        RBNode<T> *anterior = root;
         while (actual != flag){
             if (e < actual->getInfo()){
                 anterior = actual;
@@ -110,11 +110,11 @@ void BinaryTreeRB<T>::insert(T e)
             }
         }
         if (e < anterior->getInfo()){
-            Node<T> *n = new Node<T>(e,anterior,flag);
+            RBNode<T> *n = new RBNode<T>(e,anterior,flag);
             anterior->setLeft(n);
             actual = n;
         }else{
-            Node<T> *n = new Node<T>(e,anterior,flag);
+            RBNode<T> *n = new RBNode<T>(e,anterior,flag);
             anterior->setRight(n);
             actual = n;
         }
@@ -124,9 +124,9 @@ void BinaryTreeRB<T>::insert(T e)
 }
 
 template <class T>
-void BinaryTreeRB<T>::RotateS(Node<T> *first){
+void BinaryTreeRB<T>::RotateS(RBNode<T> *first){
     
-    Node<T> *second = first->getRight();
+    RBNode<T> *second = first->getRight();
     first->setRight(second->getLeft());
     second->getLeft()->setParent(first);
     second->setParent(first->getParent());
@@ -143,9 +143,9 @@ void BinaryTreeRB<T>::RotateS(Node<T> *first){
 }
 
 template <class T>
-void BinaryTreeRB<T>::RotateD(Node<T> *second){
+void BinaryTreeRB<T>::RotateD(RBNode<T> *second){
     
-    Node<T> *first = second->getLeft();
+    RBNode<T> *first = second->getLeft();
     second->setLeft(first->getRight());
     first->getRight()->setParent(second);
     first->setParent(second->getParent());
@@ -161,8 +161,8 @@ void BinaryTreeRB<T>::RotateD(Node<T> *second){
 }
 
 template <class T>
-void BinaryTreeRB<T>::fixinsert(Node<T> *third){
-    Node<T> *second;
+void BinaryTreeRB<T>::fixinsert(RBNode<T> *third){
+    RBNode<T> *second;
     while (third->getParent() != nullptr && third->getParent()->getColor() == "rojo" ){
         if (third->getParent() == third->getParent()->getParent()->getLeft()){
             second = third->getParent()->getParent()->getRight();
@@ -203,7 +203,7 @@ void BinaryTreeRB<T>::fixinsert(Node<T> *third){
 }
 
 template <class T>
-bool BinaryTreeRB<T>::isRed(Node<T> *n){
+bool BinaryTreeRB<T>::isRed(RBNode<T> *n){
     
     if (n == flag){
         return true;
@@ -221,12 +221,12 @@ bool BinaryTreeRB<T>::isRed(Node<T> *n){
 
 template <class T>
 bool BinaryTreeRB<T>::search(T e){
-    Node <T> *actual = root;
+    RBNode <T> *actual = root;
     int nivel = 0;
     while (actual != flag){
         if (actual->getInfo() == e){
-            std::cout << "nivel " << nivel << std::endl;
-            std::cout << "altura " << nivel-1 << std::endl;
+            //std::cout << "nivel " << nivel << std::endl;
+            //std::cout << "altura " << nivel-1 << std::endl;
             return true;
         }
         if (e < actual->getInfo()){
@@ -242,8 +242,8 @@ bool BinaryTreeRB<T>::search(T e){
 
 template <class T>
 void BinaryTreeRB<T>::removeInfo (T e){
-    Node <T> *third = root;
-    Node <T> *first,*second;
+    RBNode <T> *third = root;
+    RBNode <T> *first,*second;
     
     while (third->getInfo() != e){
         if (e < third->getInfo()){
@@ -289,8 +289,8 @@ void BinaryTreeRB<T>::removeInfo (T e){
 }
 
 template <class T>
-void BinaryTreeRB<T>::fixDelete(Node<T> *first){
-    Node<T> *w;
+void BinaryTreeRB<T>::fixDelete(RBNode<T> *first){
+    RBNode<T> *w;
     while (first != root && first->getColor() =="negro"){
         if (first == first->getParent()->getLeft()){
             w = first->getParent()->getRight();
@@ -348,7 +348,7 @@ void BinaryTreeRB<T>::fixDelete(Node<T> *first){
 
 
 template <class T>
-void BinaryTreeRB<T>::decreasing(Node<T> *n){
+void BinaryTreeRB<T>::decreasing(RBNode<T> *n){
     if (n==flag){
         return;
     }else{
@@ -359,21 +359,23 @@ void BinaryTreeRB<T>::decreasing(Node<T> *n){
 }
 
 template <class T>
-int BinaryTreeRB<T>::height(Node<T>* node) {
-	if (!node)
+int BinaryTreeRB<T>::height(RBNode<T>* RBNode) {
+	if (!RBNode)
 		return -1;
 	else
-		return std::max(height(node->getLeft()), height(node->getRight())) + 1;
+		return std::max(height(RBNode->getLeft()), height(RBNode->getRight())) + 1;
 }
 
-int BinaryTreeRB<T>::depth(Node<T>* node) {
-	if (!node->getParent())
+template <class T>
+int BinaryTreeRB<T>::depth(RBNode<T>* RBNode) {
+	if (!RBNode->getParent())
 		return 0;
-	return depth(node->getParent()) + 1;
+	return depth(RBNode->getParent()) + 1;
 }
 
-int BinaryTreeRB<T>::level(Node<T>* node) {
-	return depth(node) + 1;
+template <class T>
+int BinaryTreeRB<T>::level(RBNode<T>* RBNode) {
+	return depth(RBNode) + 1;
 }
 
 #endif

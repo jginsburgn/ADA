@@ -1,41 +1,41 @@
 
-#ifndef __BinaryTreeRB_Node
-#define __BinaryTreeRB_Node
+#ifndef __BinaryTreeRB_RBNode
+#define __BinaryTreeRB_RBNode
 
 #include <iostream>
 #include <string>
 using namespace std;
 
 template <typename T>
-class Node{
+class RBNode{
     
     T info;
-    Node *parent;
-    Node *left;
-    Node *right;
+    RBNode *parent;
+    RBNode *left;
+    RBNode *right;
     string color;
     
 public:
     
-    Node();
+    RBNode();
     
-    Node(T e, Node *p, Node *dir);
+    RBNode(T e, RBNode *p, RBNode *dir);
     
-    Node<T>* grandparent();
+    RBNode<T>* grandparent();
     
-    Node<T>* uncle();
+    RBNode<T>* uncle();
     
     void setInfo(T value);
     T getInfo();
     
-    void setLeft(Node<T> *value);
-    Node<T> *getLeft();
+    void setLeft(RBNode<T> *value);
+    RBNode<T> *getLeft();
     
-    void setRight(Node<T> *value);
-    Node<T> *getRight();
+    void setRight(RBNode<T> *value);
+    RBNode<T> *getRight();
     
-    void setParent(Node<T> *value);
-    Node<T> *getParent();
+    void setParent(RBNode<T> *value);
+    RBNode<T> *getParent();
     
     void setColor(string c);
     string getColor();
@@ -43,14 +43,14 @@ public:
 };
 
 template <class T>
-Node<T>::Node(){
+RBNode<T>::RBNode(){
     parent = nullptr;
     left = nullptr;
     right = nullptr;
 }
 
 template <class T>
-Node<T>::Node(T e, Node *p, Node *dir){
+RBNode<T>::RBNode(T e, RBNode *p, RBNode *dir){
     info = e;
     parent = p;
     left = dir;
@@ -59,7 +59,7 @@ Node<T>::Node(T e, Node *p, Node *dir){
 }
 
 template <class T>
-Node<T>* Node<T>::grandparent(){
+RBNode<T>* RBNode<T>::grandparent(){
     if ((this != nullptr) && (this->parent != nullptr)){
         return this->getParent()->getParent();
     }else{
@@ -68,7 +68,7 @@ Node<T>* Node<T>::grandparent(){
 }
 
 template <class T>
-Node<T>* Node<T>::uncle(){
+RBNode<T>* RBNode<T>::uncle(){
     if ((this != nullptr) && (this->parent != nullptr)){
         return this->getParent()->getParent();
     }else{
@@ -77,52 +77,52 @@ Node<T>* Node<T>::uncle(){
 }
 
 template <class T>
-void Node<T>::setInfo(T value){
+void RBNode<T>::setInfo(T value){
     info = value;
 }
 
 template <class T>
-T Node<T>::getInfo(){
+T RBNode<T>::getInfo(){
     return info;
 }
 
 template <class T>
-void Node<T>::setParent(Node<T> *value){
+void RBNode<T>::setParent(RBNode<T> *value){
     parent = value;
 }
 
 template <class T>
-Node<T>* Node<T>::getParent(){
+RBNode<T>* RBNode<T>::getParent(){
     return parent;
 }
 
 template <class T>
-void Node<T>::setLeft(Node<T> *value){
+void RBNode<T>::setLeft(RBNode<T> *value){
     left = value;
 }
 
 template <class T>
-Node<T>* Node<T>::getLeft(){
+RBNode<T>* RBNode<T>::getLeft(){
     return left;
 }
 
 template <class T>
-void Node<T>::setRight(Node<T> *value){
+void RBNode<T>::setRight(RBNode<T> *value){
     right = value;
 }
 
 template <class T>
-Node<T>* Node<T>::getRight(){
+RBNode<T>* RBNode<T>::getRight(){
     return right;
 }
 
 template <class T>
-void Node<T>::setColor(string c){
+void RBNode<T>::setColor(string c){
     color = c;
 }
 
 template <class T>
-string Node<T>::getColor(){
+string RBNode<T>::getColor(){
     return color;
 }
 
