@@ -12,42 +12,28 @@
 #include <vector>
 
 template <class T>
-void SelectionSort(std::vector<T> & data){
-    //pos_min is short for position of min
-    int pos_min,temp;
-    int n = (int)data.size();
-    for (int i=0; i < n-1; i++)
-    {
-        pos_min = i;//set pos_min to the current index of array
-        for (int j=i+1; j < n; j++){
-            if (data[j] < data[pos_min])
-                pos_min=j;
-            //pos_min will keep track of the index that min is in, this is needed when a swap happens
-        }
-        //if pos_min no longer equals i than a smaller value must have been found, so a swap must occur
-        if (pos_min != i){
-            temp = data[i];
-            data[i] = data[pos_min];
-            data[pos_min] = temp;
-        }
-    }
-}
+class BTree;
 
 template <class T>
 class BNode {
 
+    friend class BTree<T>;
+    
 private:
     int order = 0;
-
+    
+    std::vector<T> values;
+    std::vector<BNode<T> *> children;
+    
     bool IsFull();
     bool IsLeaf();
     BNode<T> * Split(T newValue, T & median);
     BNode<T> * SplitWithSplitChild(BNode<T> * newRightChild, T newValue, T & median);
     void PositionNewValue(T newValue);
-    int ChildFor(T newValue);
+    int ChildFor(T value) const;
     void EraseChildren();
-    int IndexOfNewValue(T newValue);
-    int IndexOfValueInNode(T value);
+    int IndexOfNewValue(T newValue) const;
+    int IndexOfValueInNode(T value) const;
     T FindReplacementForKeyAt(int index, bool & found, int & indexOfSubtreeWhereFound);
     void ShiftChildrenLeftFrom(int childIndex);
     void ShiftValuesLeftFrom(int index);
@@ -64,13 +50,13 @@ private:
 
 public:
 
-    std::vector<T> values;
-    std::vector<BNode<T> *> children;
-
     BNode<T>(int newOrder){ order = newOrder; EraseChildren(); }
     void Insert(T newValue, std::vector<void *> * results);
     void Erase(T valueToErase, bool & underflowOcurred);
-    void Print();
+    void PrintAscending() const;
+    void PrintDescending() const;
+    bool Search(T value) const;
+    bool IsLegal(bool isShallow) const;
 
 };
 
@@ -204,10 +190,10 @@ void BNode<T>::PositionNewValue(T newValue){
 }
 
 template <class T>
-int BNode<T>::ChildFor(T newValue){
+int BNode<T>::ChildFor(T value) const{
     int returner = - 1;
     int i = 0;
-    while (newValue > values[i]) {
+    while (value > values[i]) {
         if (i == values.size()) {
             if (children[i]) {
                 returner = i;
@@ -231,7 +217,7 @@ void BNode<T>::EraseChildren(){
 }
 
 template <class T>
-int BNode<T>::IndexOfNewValue(T newValue){
+int BNode<T>::IndexOfNewValue(T newValue) const{
     int i = 0;
     if (values.size() == 0) {
         return i;
@@ -246,7 +232,7 @@ int BNode<T>::IndexOfNewValue(T newValue){
 }
 
 template <class T>
-int BNode<T>::IndexOfValueInNode(T value){
+int BNode<T>::IndexOfValueInNode(T value) const{
     int index = -1;
     for (int i = 0; i < values.size(); ++i) {
         if (values[i] == value) {
@@ -587,16 +573,64 @@ void BNode<T>::Erase(T valueToErase, bool & underflowOcurred){
 }
 
 template <class T>
-void BNode<T>::Print(){
+void BNode<T>::PrintAscending() const {
     for (int i = 0; i < values.size(); ++i) {
         if (children[i]) {
-            children[i]->Print();
+            children[i]->PrintAscending();
         }
-        std::cout << values[i] << ", ";
+        std::cout << values[i] << "\n";
     }
     if (children[values.size()]) {
-        children[values.size()]->Print();
+        children[values.size()]->PrintAscending();
     }
+}
+
+template <class T>
+void BNode<T>::PrintDescending() const {
+    for (int i = (int)values.size(); 0 < i; --i) {
+        if (children[i]) {
+            children[i]->PrintDescending();
+        }
+        std::cout << values[i - 1] << "\n";
+    }
+    if (children[0]) {
+        children[0]->PrintDescending();
+    }
+}
+
+template <class T>
+bool BNode<T>::Search(T value) const {
+    int indexOfValueInNode = IndexOfValueInNode(value);
+    if (indexOfValueInNode == -1) {
+        int childFor = ChildFor(value);
+        if (childFor == -1) {
+            return false;
+        }
+        else return children[childFor]->Search(value);
+    }
+    else return true;
+}
+
+template <class T>
+bool BNode<T>::IsLegal(bool isShallow) const {
+    bool retVal = true;
+    
+    if (isShallow) {
+        retVal = values.size() <= 2 * order;
+    }
+    else {
+        retVal = order <= values.size() && values.size() <= 2 * order;
+    }
+    
+    if (retVal) {
+        for (int i = 0; i < (int)children.size(); ++i) {
+            if (children[i]) {
+                retVal = retVal && children[i]->IsLegal(false);
+            }
+        }
+        return retVal;
+    }
+    else return retVal;
 }
 
 #endif

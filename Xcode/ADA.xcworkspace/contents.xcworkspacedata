@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:Helper/Helper.xcodeproj">
-   </FileRef>
    <Group
       location = "container:"
       name = "Sorting Algorithms">
@@ -17,6 +14,9 @@
    <Group
       location = "container:"
       name = "Tree Algorithms">
+      <FileRef
+         location = "group:FileManager/FileManager.xcodeproj">
+      </FileRef>
       <FileRef
          location = "group:Tree Algorithms General Files">
       </FileRef>

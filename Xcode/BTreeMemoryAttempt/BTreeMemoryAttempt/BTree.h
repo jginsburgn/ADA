@@ -23,8 +23,11 @@ public:
 
     void Insert(T newValue);
     void Erase(T value);
-    void PrintAscending();
-    bool IsEmpty();
+    void PrintAscending() const;
+    void PrintDescending() const;
+    bool Search(T value) const;
+    bool IsEmpty() const;
+    bool IsLegal() const;
 };
 
 template <class T>
@@ -69,15 +72,38 @@ void BTree<T>::Erase(T value){
 }
 
 template <class T>
-void BTree<T>::PrintAscending() {
+void BTree<T>::PrintAscending() const {
     if (root) {
-        root->Print();
+        root->PrintAscending();
     }
 }
 
 template <class T>
-bool BTree<T>::IsEmpty() {
+void BTree<T>::PrintDescending() const {
+    if (root) {
+        root->PrintDescending();
+    }
+}
+
+template <class T>
+bool BTree<T>::Search(T value) const {
+    if (root) {
+        return root->Search(value);
+    }
+    return false;
+}
+
+template <class T>
+bool BTree<T>::IsEmpty() const {
     return root == nullptr;
+}
+
+template <class T>
+bool BTree<T>::IsLegal() const {
+    if (IsEmpty()) {
+        return true;
+    }
+    else return root->IsLegal(true);
 }
 
 #endif
