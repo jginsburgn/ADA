@@ -14,7 +14,7 @@
 template <class T>
 class BTree {
 
-private:
+protected:
     int order;
     BNode<T> * root = nullptr;
 
@@ -41,7 +41,7 @@ void BTree<T>::Insert(T newValue){
         int * childSplitted = (int *)(*obtainedResults)[0];
         if (*childSplitted) { //Child splitted
             BNode<T> * newRoot = new BNode<T>(order);
-            int * returnedMedian = (int *)(*obtainedResults)[2];
+            T * returnedMedian = (T *)(*obtainedResults)[2];
             std::vector<void *> * dummyHolder = new std::vector<void *>();
             newRoot->Insert(*returnedMedian, dummyHolder);
             newRoot->children[0] = root;

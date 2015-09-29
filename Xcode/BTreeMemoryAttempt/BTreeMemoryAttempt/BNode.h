@@ -19,7 +19,7 @@ class BNode {
 
     friend class BTree<T>;
     
-private:
+protected:
     int order = 0;
     
     std::vector<T> values;
@@ -193,7 +193,7 @@ template <class T>
 int BNode<T>::ChildFor(T value) const{
     int returner = - 1;
     int i = 0;
-    while (value > values[i]) {
+    while (i < values.size() && value > values[i]) {
         if (i == values.size()) {
             if (children[i]) {
                 returner = i;
@@ -222,7 +222,7 @@ int BNode<T>::IndexOfNewValue(T newValue) const{
     if (values.size() == 0) {
         return i;
     }
-    while (newValue > values[i] && i < values.size()) {
+    while (i < (int)values.size() && newValue > values[i]) {
         if (i == values.size()) {
             return -1;
         }
@@ -458,7 +458,7 @@ void BNode<T>::Insert(T newValue, std::vector<void *> * results){
                 int * childSplitted = (int *)(*obtainedResults)[0];
                 if (*childSplitted) { //Child splitted
                     T * median = new T();
-                    int * returnedMedian = (int *)(*obtainedResults)[2];
+                    T * returnedMedian = (T *)(*obtainedResults)[2];
                     BNode<T> * newRight = SplitWithSplitChild((BNode<T> *)(*obtainedResults)[1], *returnedMedian, *median);
                     int * splitted = new int();
                     *splitted = 1;
@@ -491,7 +491,7 @@ void BNode<T>::Insert(T newValue, std::vector<void *> * results){
                 childToInsertNewValue->Insert(newValue, obtainedResults);
                 int * childSplitted = (int *)(*obtainedResults)[0];
                 if (*childSplitted) { //Child splitted
-                    int * median = (int *)(*obtainedResults)[2];
+                    T * median = (T *)(*obtainedResults)[2];
                     int index = IndexOfNewValue(*median);
                     PositionNewValue(*median);
                     children[index + 1] = (BNode<T> *)(*obtainedResults)[1];
