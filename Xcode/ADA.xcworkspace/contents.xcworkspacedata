@@ -15,13 +15,13 @@
       location = "container:"
       name = "Tree Algorithms">
       <FileRef
+         location = "group:Tree Algorithms General Files">
+      </FileRef>
+      <FileRef
          location = "group:BTreeInDisk/BTreeInDisk.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:FileManager/FileManager.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Tree Algorithms General Files">
       </FileRef>
       <FileRef
          location = "group:BTreeMemoryAttempt/BTreeMemoryAttempt.xcodeproj">
