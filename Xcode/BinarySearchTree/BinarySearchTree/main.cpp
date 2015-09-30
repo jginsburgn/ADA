@@ -27,7 +27,5 @@ int main(int argc, const char * argv[]) {
     } catch (const char * exception) {
         std::cout << exception << std::endl; //No esta imprimiendo las excepciones
     }
-    int a;
-    std::cin >> a;
     return 0;
 }

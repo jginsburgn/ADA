@@ -9,7 +9,7 @@
 #ifndef Graphs_FileManager_h
 #define Graphs_FileManager_h
 
-#include "Helper.h"
+#include "../../Helper.h"
 #include <fstream>
 #include <vector>
 

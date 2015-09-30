@@ -27,7 +27,6 @@
 		FACD15131BB90AA600E8C3CE /* FileManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FileManager; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACD15161BB90AA600E8C3CE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FACD151D1BB90C0700E8C3CE /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
-		FACD151E1BB90C0700E8C3CE /* Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +62,6 @@
 				FACD15161BB90AA600E8C3CE /* main.cpp */,
 				FACD151D1BB90C0700E8C3CE /* FileManager.h */,
 				FA80F0721BB920070020CB67 /* InDiskShell.h */,
-				FACD151E1BB90C0700E8C3CE /* Helper.h */,
 			);
 			path = FileManager;
 			sourceTree = "<group>";

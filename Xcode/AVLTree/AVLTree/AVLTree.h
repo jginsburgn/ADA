@@ -11,7 +11,6 @@
 
 #include <vector>
 #include "../../BinarySearchTree/BinarySearchTree/BinarySearchTree.h"
-#include "../../Tree Algorithms General Files/BinaryNode.h"
 
 namespace jgn {
     template <class T>
@@ -26,12 +25,18 @@ namespace jgn {
         void Rebalance(BinaryNode<T> * fromNode);
         
     public:
-        
         AVLTree() {};
         ~AVLTree() {this->Clear();}
         void Insert(T);
         void Erase(T);
-        
+        bool Search(T);
+        //void PrintAscending(); inherited
+        //void PrintDescending(); inherited
+        //int GetNodesHeight(T); inherited
+        //int GetNodesDepth(T); inherited
+        //int GetNodesLevel(T); inherited
+        bool IsLegal() const;
+        //void Clear(); inherited
     };
     
     template <class T>
@@ -282,6 +287,16 @@ namespace jgn {
         }
     }
 
+    template <class T>
+    bool AVLTree<T>::Search(T value){
+        return BinarySearchTree<T>::Search(value);
+    }
+    
+    template <class T>
+    bool AVLTree<T>::IsLegal() const {
+        bool retVal = true;
+        return retVal;
+    }
 }
 
 #endif

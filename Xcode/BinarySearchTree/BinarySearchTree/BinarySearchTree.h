@@ -10,7 +10,7 @@
 #define BinarySearchTree_BinarySearchTree_h
 
 #include <vector>
-#include "../../Tree Algorithms General Files/BinaryNode.h"
+#include "BinaryNode.h"
 
 namespace jgn {
     template <class T>
@@ -18,7 +18,6 @@ namespace jgn {
         
     protected:
         BinaryNode<T> * root = nullptr;
-        
         void PreOrder(BinaryNode<T> *, void (*)(BinaryNode<T> *, std::vector<void *> *), std::vector<void *> *);
         void InOrder(BinaryNode<T> *, void (*)(BinaryNode<T> *, std::vector<void *> *), std::vector<void *> *);
         void ReversedInOrder(BinaryNode<T> *, void (*)(BinaryNode<T> *, std::vector<void *> *), std::vector<void *> *);

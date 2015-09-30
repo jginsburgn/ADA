@@ -22,17 +22,17 @@ std::ostream & operator << (std::ostream & os, std::vector<T> values){
 }
 
 int main(int argc, const char * argv[]) {
-    
-    BTreeInDisk<std::string> tree(Helper::readLine("Provide a directory:"), Helper::readLine("Provide a name:"), Helper::read<int>("Provide an order:"));
-    
+    Helper::print("Welcome to the mini tester of BTrees. Jonathan Ginsburg (C) September 2015.");
+    BTreeInDisk<std::string> tree(Helper::readLine("Provide a directory: "), Helper::readLine("Provide a name: "), Helper::read<int>("Provide an order: "));
+    Helper::print("Disclaimer: Application will not work unless there is a directory in the provided directory address and a folder in it with the name of the name provided. In case these already existed and the tree was built previously, the current tree will represent that last saved version. Also please remember that this tree is for strings therefore \"36\" < \"8\".");
     while (true) {
-        Helper::print("1 for inserting in tree.");
-        Helper::print("2 for deleting from tree.");
-        Helper::print("3 for searching in tree.");
-        Helper::print("4 for printing tree in ascending order.");
-        Helper::print("5 for printing tree in descending order.");
-        Helper::print("0 for terminating program.");
-        int input = Helper::read<int>("Enter your choice:");
+        Helper::print("\t1 for inserting in tree.");
+        Helper::print("\t2 for deleting from tree.");
+        Helper::print("\t3 for searching in tree.");
+        Helper::print("\t4 for printing tree in ascending order.");
+        Helper::print("\t5 for printing tree in descending order.");
+        Helper::print("\t0 for terminating program.");
+        int input = Helper::read<int>("Enter your choice: ");
         switch (input) {
             case 0:
                 return 0;
@@ -55,40 +55,4 @@ int main(int argc, const char * argv[]) {
                 break;
         }
     }
-    
-//    std::vector<std::string> originalValues;
-//    std::vector<std::string> deletedValues;
-//    BTreeInDisk<std::string> tree(".", "firsttry", 2);
-//    srand ((unsigned int)time(NULL));
-//    for (int i = 0; i < 10; ++i) {
-//        std::string value = Helper::readLine("Give me some string to insert:");
-//        tree.Insert(value);
-//        originalValues.push_back(value);
-//    }
-//    std::cout << originalValues << std::endl;
-//    std::string isLegal = tree.IsLegal() ? "Tree follows B Tree rules." : "Tree does not follow B Tree rules.";
-//    std::cout << isLegal << std::endl;
-//    std::string input = "";
-//    do {
-//        input = Helper::readLine("Give me a string to search or no for continuing:");
-//        if (tree.Search(input)) {
-//            std::cout << "Value was found in tree." << std::endl;
-//        }
-//        else std::cout << "Value was not found in tree." << std::endl;
-//    } while (input != "no");
-//    //    int i = 0;
-//    while (!tree.IsEmpty()) {
-//        int index = (rand() % originalValues.size());
-//        std::string valueToErase = originalValues[index];
-//        std::cout << std::endl;
-//        deletedValues.push_back(valueToErase);
-//        tree.PrintAscending();
-//        tree.PrintDescending();
-//        std::cout << "Val to erase: " << valueToErase << ".";
-//        std::cout << std::endl << "Deleted Values: " << deletedValues;
-//        std::cout.flush();
-//        tree.Erase(valueToErase);
-//        originalValues.erase(originalValues.begin() + index);
-//    }
-//    std::cout << std::endl;
 }

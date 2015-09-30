@@ -12,19 +12,10 @@
 #include "InDiskShell.h"
 
 int main(int argc, const char * argv[]) {
-//    std::string filepath;
-//    std::cin >> filepath;
-//    std::string lineone;
-//    std::cin >> lineone;
-//    std::vector<std::string> vec;
-//    vec.push_back(lineone);
-//    FileManager::saveSession(filepath, vec);
-    std::string path = Helper::readLine("Enter path:");
-    std::string fileName = Helper::readLine("Enter file name:");
-    
-    InDiskShell<int> shell(path, fileName);
-    std::cout << shell.GetInfo() << std::endl;
-    shell << Helper::read<int>("Enter the number to save");
-    
+    Helper::print("Welcome to the mini tester for the InDiskShell class. Jonathan Ginsburg (C) September 2015.");
+    std::string path = Helper::readLine("Enter path: ");
+    std::string fileName = Helper::readLine("Enter file name: ");
+    InDiskShell<std::string> shell(path, fileName);
+    shell << Helper::readLine("Enter the string to save: ");
     return 0;
 }
