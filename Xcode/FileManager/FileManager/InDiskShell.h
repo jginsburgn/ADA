@@ -12,14 +12,25 @@
 #include <string>
 #include "FileManager.h"
 #include "../../Helper.h"
+//{
+//Necessary functions for using BTreeInDisk class with strings
+//std::string BuildFromSavableRepresentation(std::string savableRepresentation){
+//    return savableRepresentation;
+//}
+//
+//std::string GetSavableRepresentation(std::string & info){
+//    return info;
+//}
 
-std::string BuildFromSavableRepresentation(std::string savableRepresentation){
-    return savableRepresentation;
+//Necessary functions for using BTreeInDisk class with ints
+int BuildFromSavableRepresentation(std::string savableRepresentation){
+    return std::atoi(savableRepresentation.c_str());
 }
 
-std::string GetSavableRepresentation(std::string & info){
-    return info;
+std::string GetSavableRepresentation(int & info){
+    return Helper::intToString(info);
 }
+//} These functions are self exclusive
 
 template <class T>
 class InDiskShell {

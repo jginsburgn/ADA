@@ -9,10 +9,10 @@
 #include <iostream>
 #include <chrono>
 #include <vector>
-#include "../../BTree/BTree/BTree.h"
+#include "../../BTreeInDisk/BTreeInDisk/BTreeInDisk.h"
 #include "../../AVLTree/AVLTree/AVLTree.h"
-#include "../../AVL,B,RB,2-3/AVL,B,RB,2-3/2-3/BinaryTree23.h"
-#include "../../AVL,B,RB,2-3/AVL,B,RB,2-3/RB/BinaryTreeRB.h"
+#include "../../TwoThreeTree/TwoThreeTree/TwoThreeTree.h"
+#include "../../RBTree/RBTree/RBTree.h"
 
 //Fills vector with random numbers in range [1, 10000]
 void FillIntVector(std::vector<int> & vector, const int size) {
@@ -39,7 +39,7 @@ int main(int argc, const char * argv[]) {
     int numberOfRepetitions;
     int order = 0;
     
-    cout << endl << "Searching In Trees Time Meter 1.0 by Jonathan Ginsburg and Enrique Gonzales. (c) September 9, 2015. All rights reserved." << endl;
+    cout << endl << "Searching In Trees Time Meter 1.0 by Jonathan Ginsburg and Enrique Gonzales. (c) September 30, 2015. All rights reserved." << endl;
     
     if (argc == 1) {
         cout << "Type <<TimingOFSearchingTreeAlgorithms help>>" << endl;
@@ -84,10 +84,10 @@ int main(int argc, const char * argv[]) {
         
         cout << "\tFilling BTree of order " << order << ": ";
         std::cout.flush();
-        BTree<int> btree(order);
+        BTreeInDisk<int> btree(".", "BTreeSpace", order);
         high_resolution_clock::time_point begin = high_resolution_clock::now();
         for (int i = 0; i < data.size(); ++i) {
-            btree.insert(data[i]);
+            btree.Insert(data[i]);
         }
         high_resolution_clock::time_point end = high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>( end - begin ).count();// Time in microseconds
@@ -97,12 +97,7 @@ int main(int argc, const char * argv[]) {
         std::cout.flush();
         begin = high_resolution_clock::now();
         for (int i = 0; i < dataToLookFor.size(); ++i) {
-            BTreeNode<int> * node = btree.search(dataToLookFor[i]);
-            for (int i = 0; i < node->n; ++i) {
-                if (node->keys[i]==dataToLookFor[i]) {
-                    break;
-                }
-            }
+            btree.Search(dataToLookFor[i]);
         }
         end = high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>( end - begin ).count();// Time in microseconds
@@ -140,7 +135,7 @@ int main(int argc, const char * argv[]) {
         
         cout << "\tFilling 2-3Tree:";
         std::cout.flush();
-        BinaryTree23<int> _23tree;
+        TwoThreeTree<int> _23tree;
         begin = high_resolution_clock::now();
         for (int i = 0; i < data.size(); ++i) {
             _23tree.insert(data[i]);
@@ -161,10 +156,10 @@ int main(int argc, const char * argv[]) {
         
         cout << "\tFilling RBTree:";
         std::cout.flush();
-        BinaryTreeRB<int> rbtree;
+        RBTree<int> rbtree;
         begin = high_resolution_clock::now();
         for (int i = 0; i < data.size(); ++i) {
-            rbtree.insert(data[i]);
+            rbtree.Insert(data[i]);
         }
         end = high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>( end - begin ).count();// Time in microseconds
@@ -174,7 +169,7 @@ int main(int argc, const char * argv[]) {
         std::cout.flush();
         begin = high_resolution_clock::now();
         for (int i = 0; i < dataToLookFor.size(); ++i) {
-            rbtree.search(dataToLookFor[i]);
+            rbtree.Search(dataToLookFor[i]);
         }
         end = high_resolution_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>( end - begin ).count();// Time in microseconds

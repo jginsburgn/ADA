@@ -9,6 +9,14 @@
 #include <iostream>
 #include "BTreeInDisk.h"
 
+std::string BuildFromSavableRepresentation(std::string savableRepresentation){
+    return savableRepresentation;
+}
+
+std::string GetSavableRepresentation(std::string & info){
+    return info;
+}
+
 template <class T>
 std::ostream & operator << (std::ostream & os, std::vector<T> values){
     if (values.size() == 0) {
