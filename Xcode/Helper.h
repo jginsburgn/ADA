@@ -16,6 +16,8 @@
 #include <sstream>
 #include <stdexcept>
 
+using namespace std;
+
 class Helper {
 public:
     
@@ -41,7 +43,7 @@ public:
         float retVal =  0;
         try {
             retVal = std::stof(value);
-        } catch (const std::out_of_range& invalido) {
+        } catch (const out_of_range& invalido) {
             std::string description = "Number out of possible range...(";
             description.append(value);
             description.append(")");
