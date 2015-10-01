@@ -8,9 +8,6 @@
 
 #ifndef BinaryTree_BinaryNode_h
 #define BinaryTree_BinaryNode_h
-
-#pragma GCC diagnostic ignored "-Wtautological-undefined-compare"
-
 #include <iostream>
 
 namespace jgn {
