@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <chrono>
+#include <stdio.h>
+#include <string.h>
 #include <vector>
 #include "../../BTreeInDisk/BTreeInDisk/BTreeInDisk.h"
 #include "../../AVLTree/AVLTree/AVLTree.h"
@@ -42,14 +44,14 @@ int main(int argc, const char * argv[]) {
     cout << endl << "Searching In Trees Time Meter 1.0 by Jonathan Ginsburg and Enrique Gonzales. (c) September 30, 2015. All rights reserved." << endl;
     
     if (argc == 1) {
-        cout << "Type <<TimingOFSearchingTreeAlgorithms help>>" << endl;
+        cout << "Type <<TimingOfSearchingTreeAlgorithms help>>" << endl;
         cout << endl;
         return 0;
     }
     else {
         if (WhereIs(argv, argc, "help") != -1) {
             cout << "This is a tool for timing searching algorithms in AVL, B, Red-Black and 2-3 trees written in C++. Use any of the following commands:" << endl;
-            cout << "\t1. TimingOFSearchingTreeAlgorithms <arg1> <arg2> <arg3> <arg4>, where <arg1> is the population of elements in each tree, <arg2> is the number of elements to search for in each tree, <arg3> is the number of repetitions to make all measurements with different populations, and <arg4> is the order of the B Tree." << endl;
+            cout << "\t1. TimingOfSearchingTreeAlgorithms <arg1> <arg2> <arg3> <arg4>, where <arg1> is the population of elements in each tree, <arg2> is the number of elements to search for in each tree, <arg3> is the number of repetitions to make all measurements with different populations, and <arg4> is the order of the B Tree." << endl;
             
             cout << endl;
             return 0;

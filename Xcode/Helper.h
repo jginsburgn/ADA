@@ -14,6 +14,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <stdexcept>
 
 class Helper {
 public:
@@ -22,12 +23,12 @@ public:
         long double retVal =  0;
         try {
             retVal = std::stold(value);
-        } catch (const std::out_of_range& invalido) {
+        } catch (const out_of_range &invalido) {
             std::string description = "Number out of possible range...(";
             description.append(value);
             description.append(")");
             throw description.c_str();
-        } catch (const std::invalid_argument& ia) {
+        } catch (const std::invalid_argument &ia) {
             std::string description = "Argument is not a number...(";
             description.append(value);
             description.append(")");
@@ -45,7 +46,7 @@ public:
             description.append(value);
             description.append(")");
             throw description.c_str();
-        } catch (const std::invalid_argument& ia) {
+        } catch (const std::invalid_argument & ia) {
             std::string description = "Argument is not a number...(";
             description.append(value);
             description.append(")");
