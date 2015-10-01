@@ -15,6 +15,14 @@
 #include <vector>
 #include <sstream>
 #include <stdexcept>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+using namespace std;
+>>>>>>> 62666feceef8a50f89958beecb70b0f93db249f3
+>>>>>>> 4a5351078384b0c418ee4c1094d60375bebf51ef
 
 class Helper {
 public:
