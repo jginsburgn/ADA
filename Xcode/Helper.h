@@ -16,10 +16,45 @@
 #include <sstream>
 #include <stdexcept>
 
+template <class T>
+std::ostream & operator << (std::ostream & os, std::vector<T> values){
+    if (values.size() == 0) {
+        return os;
+    }
+    os << "(";
+    for (int i = 0; i < values.size() - 1; ++i) {
+        os << values[i] << ", ";
+    }
+    os << values[values.size() - 1] << ")";
+    return os;
+}
+
 using namespace std;
 
 class Helper {
 public:
+    template <class T>
+    static std::vector<T> vectorSubtraction(const std::vector<T> & minuend, const std::vector<T> & subtrahend) {
+        std::vector<T> answer = minuend;
+        for (int i = 0; i < subtrahend.size(); ++i) {
+            int tmpIndex = Helper::getIndexOf<T>(subtrahend[i], answer);
+            if (tmpIndex == -1) continue;
+            answer.erase(answer.begin() + tmpIndex);
+        }
+        return answer;
+    }
+    
+    template <class T>
+    static int getIndexOf(const T & object, const std::vector<T> & objects){
+        int index = -1;
+        for (int i = 0; i < objects.size(); ++i) {
+            if (object == objects[i]) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
     
     static long double stringToLongDouble(std::string value){
         long double retVal =  0;

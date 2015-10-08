@@ -6,7 +6,7 @@
    </FileRef>
    <Group
       location = "container:"
-      name = "Sorting Algorithms">
+      name = "Sorting Algorithms Analysis">
       <FileRef
          location = "group:AllSortingAlgorithms/AllSortingAlgorithms.xcodeproj">
       </FileRef>
@@ -16,7 +16,7 @@
    </Group>
    <Group
       location = "container:"
-      name = "Tree Algorithms">
+      name = "Trees &amp; Algorithms On Them">
       <FileRef
          location = "group:TwoThreeTree/TwoThreeTree.xcodeproj">
       </FileRef>
@@ -50,6 +50,16 @@
       </FileRef>
       <FileRef
          location = "group:TimingOfSearchingTreeAlgorithms/TimingOfSearchingTreeAlgorithms.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Algorithm Design With Techniques">
+      <FileRef
+         location = "group:TheStableCouples/TheStableCouples.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:TheHurriedTrucker/TheHurriedTrucker.xcodeproj">
       </FileRef>
    </Group>
 </Workspace>
