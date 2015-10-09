@@ -56,6 +56,12 @@
       location = "container:"
       name = "Algorithm Design With Techniques">
       <FileRef
+         location = "group:ParagraphDivision/ParagraphDivision.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:MaximumCommonSubstring/MaximumCommonSubstring.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:TheStableCouples/TheStableCouples.xcodeproj">
       </FileRef>
       <FileRef
