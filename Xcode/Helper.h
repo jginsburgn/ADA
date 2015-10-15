@@ -173,7 +173,7 @@ public:
     static void printMatrix(T** matrix, int rows, int columns){
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < columns; ++j) {
-                std::cout << matrix[i][j] << " ";
+                std::cout << matrix[i][j] << "\t";
             }
             std::cout << std::endl;
         }

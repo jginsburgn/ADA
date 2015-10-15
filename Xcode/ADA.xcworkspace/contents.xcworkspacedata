@@ -68,4 +68,27 @@
          location = "group:TheHurriedTrucker/TheHurriedTrucker.xcodeproj">
       </FileRef>
    </Group>
+   <Group
+      location = "container:"
+      name = "Graphs">
+      <Group
+         location = "container:"
+         name = "Graph Implementation">
+         <FileRef
+            location = "group:Edge.h">
+         </FileRef>
+         <FileRef
+            location = "group:Graph.h">
+         </FileRef>
+         <FileRef
+            location = "group:Vertex.h">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:FloydWarshallResponseToTC2017-T4C06/FloydWarshallResponseToTC2017-T4C06.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:GraphsSandbox/GraphsSandbox.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>
