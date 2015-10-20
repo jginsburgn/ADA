@@ -1,0 +1,4 @@
+To use:
+1. Open Xcode's project located at Snap-2.4/examples/snap-examples.xcodeproj;
+2. Compile everything on Xcode; and
+3. On that same Xcode window, open testgraph under examples directory and modify as desired;
