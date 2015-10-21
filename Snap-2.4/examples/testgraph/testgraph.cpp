@@ -1,103 +1,112 @@
 #include "stdafx.h"
+#include "LocalHelper.h"
 
-int main(int argc, char* argv[]) {
-    
-    //// what type of graph do you want to use?
-    typedef PUNGraph PGraph; // undirected graph
-    //typedef PNGraph PGraph;  //   directed graph
-    //typedef PNEGraph PGraph;  //   directed multigraph
-    //typedef TPt<TNodeNet<TInt> > PGraph;
-    //typedef TPt<TNodeEdgeNet<TInt, TInt> > PGraph;
-    
-    // this code is independent of what particular graph implementation/type we use
-    printf("Creating graph:\n");
-    PGraph G = PGraph::TObj::New();
-    for (int n = 0; n < 10; n++) {
-        G->AddNode(); // if no parameter is given, node ids are 0,1,...,9
+//Node traversal
+//for (TNEANet::TNodeI NI = graph->BegNI(); NI < graph->EndNI(); NI++){
+//    TIntV attributes;
+//    NI.GetIntAttrVal(attributes);
+//    std::string firstMessage = "Node with info: ";
+//    firstMessage.append(IntToString(attributes[0]));
+//    Print(firstMessage, true);
+//    printf("\tNode's Id: %i, Node's out degree: %d, Node's in degree: %d\n", NI.GetId(), NI.GetOutDeg(), NI.GetInDeg());
+//}
+
+void PrintGStats(PNEANet Graph) {
+    printf("Stats: nodes %d, edges %d, empty %s\n",
+           Graph->GetNodes(), Graph->GetEdges(),
+           Graph->Empty() ? "yes" : "no");
+}
+
+int Prompt(){
+    PNEANet graph = TNEANet::New();
+    while (true) {
+        Print("", true);
+        Print("1) For Vertex Insertion", true);
+        Print("2) For Edge Insertion", true);
+        Print("3) For Vertex Deletion", true);
+        Print("4) For Edge Deletion", true);
+        Print("5) For Depth First Traversing", true);
+        Print("6) For Breadth First Traversing", true);
+        Print("7) For getting Minimum Expansion Tree of Graph by Prim's Algorithm", true);
+        Print("8) For getting Minimum Expansion Tree of Graph by Kruskal's Algorithm", true);
+        Print("9) For getting Shortest Paths from a given Vertex to all others by Dijkstra's Algorithm", true);
+        Print("10) For getting Shortest Paths from a given Vertex to all others by Floyd-Warshall's Algorithm", true);
+        Print("11) For printing Graph statistics", true);
+        Print("0) For finishing program", true);
+        int choice = ReadInt("Enter your choice: ");
+        Print("", true);
+        StartChronometer();
+        if (choice == 0) {
+            Print("Process terminated...", true);
+            break;
+        }
+        else if (choice == 1){
+            int data = ReadInt("Enter info (integer) of vertex to add: ");
+            if (graph->IsNode(data)) Print("That vertex already exists.", true);
+            else {
+                graph->AddNode(data);
+                graph->AddIntAttrDatN(data, data, "");
+            }
+        }
+        else if (choice == 2){
+            Print("Node's list: ");
+            int counter = 1;
+            for (TNEANet::TNodeI NI = graph->BegNI(); NI < graph->EndNI(); NI++){
+                TIntV attributes;
+                NI.GetIntAttrVal(attributes);
+                std::string info = IntToString(attributes[0]);
+                if (counter++ < graph->GetNodes()) info.append(", ");
+                else info.append(".");
+                Print(info);
+            }
+            Print("", true);
+            int origin = ReadInt("Enter origin node: ");
+            int destination = ReadInt("Enter destination node: ");
+            int edgesId = 0;
+            if (!graph->IsNode(origin) || !graph->IsNode(destination)) Print("Origin or destination does not exist", true);
+            else {
+                edgesId = graph->AddEdge(origin, destination);
+                graph->AddIntAttrDatE(edgesId, ReadInt("Enter the weight of the edge to add: "), "");
+            }
+        }
+        else if (choice == 3){
+            
+        }
+        else if (choice == 4){
+            
+        }
+        else if (choice == 5){
+            
+        }
+        else if (choice == 6){
+            
+        }
+        else if (choice == 7){
+            
+        }
+        else if (choice == 8){
+            
+        }
+        else if (choice == 9){
+            
+        }
+        else if (choice == 10){
+            
+        }
+        else if (choice == 11){
+            PrintGStats(graph);
+        }
+        std::string timeMessage = "Operation completed in: ";
+        std::string time = ChronometerLap();
+        timeMessage.append(time);
+        timeMessage.append(" seconds.");
+        Print(timeMessage, true);
     }
-    G->AddEdge(0, 1);
-    for (int e = 0; e < 10; e++) {
-        const int NId1 = G->GetRndNId();
-        const int NId2 = G->GetRndNId();
-        if (G->AddEdge(NId1, NId2) != -2) {
-            printf("  Edge %d -- %d added\n", NId1,  NId2); }
-        else {
-            printf("  Edge %d -- %d already exists\n", NId1, NId2); }
-    }
-    IAssert(G->IsOk());
-    //G->Dump();
-    // delete
-    PGraph::TObj::TNodeI NI = G->GetNI(0);
-    printf("Delete edge %d -- %d\n", NI.GetId(), NI.GetOutNId(0));
-    G->DelEdge(NI.GetId(), NI.GetOutNId(0));
-    const int RndNId = G->GetRndNId();
-    printf("Delete node %d\n", RndNId);
-    G->DelNode(RndNId);
-    IAssert(G->IsOk());
-    // dump the graph
-    printf("Graph (%d, %d)\n", G->GetNodes(), G->GetEdges());
-    for (PGraph::TObj::TNodeI NI = G->BegNI(); NI < G->EndNI(); NI++) {
-        printf("  %d: ", NI.GetId());
-        for (int e = 0; e < NI.GetDeg(); e++) {
-            printf(" %d", NI.GetNbrNId(e)); }
-        printf("\n");
-    }
-    // dump subgraph
-    TIntV NIdV;
-    for (PGraph::TObj::TNodeI NI = G->BegNI(); NI < G->EndNI(); NI++) {
-        if (NIdV.Len() < G->GetNodes()/2) { NIdV.Add(NI.GetId()); }
-    }
-    PGraph SubG = TSnap::GetSubGraph(G, NIdV);
-    //SubG->Dump();
-    // get UNGraph
-    { PUNGraph UNG = TSnap::ConvertGraph<PUNGraph>(SubG);
-        UNG->Dump();
-        IAssert(UNG->IsOk());
-        TSnap::ConvertSubGraph<PNGraph>(G, NIdV)->Dump(); }
-    // get NGraph
-    { PNGraph NG = TSnap::ConvertGraph<PNGraph>(SubG);
-        NG->Dump();
-        IAssert(NG->IsOk());
-        TSnap::ConvertSubGraph<PNGraph>(G, NIdV)->Dump(); }
-    // get NEGraph
-    { PNEGraph NEG = TSnap::ConvertGraph<PNEGraph>(SubG);
-        NEG->Dump();
-        IAssert(NEG->IsOk());
-        TSnap::ConvertSubGraph<PNGraph>(G, NIdV)->Dump(); }
-    
-    TSnap::TestAnf<PUNGraph>();
     return 0;
 }
 
-void TestEigSvd() {
-    PNGraph G = TSnap::GenRndGnm<PNGraph>(100,1000, true);
-    PUNGraph UG = TSnap::ConvertGraph<PUNGraph>(G);
-    
-    TSnap::SaveMatlabSparseMtx(G, "test1.mtx");
-    TSnap::SaveMatlabSparseMtx(UG, "test2.mtx");
-    
-    TFltV SngValV; TVec<TFltV> LeftV, RightV;
-    TSnap::GetSngVec(G, 20, SngValV, LeftV, RightV);
-    printf("Singular Values:\n");
-    for (int i =0; i < SngValV.Len(); i++) {
-        printf("%d\t%f\n", i, SngValV[i]()); }
-    printf("LEFT Singular Vectors:\n");
-    for (int i=0; i < LeftV[0].Len(); i++) {
-        printf("%d\t%f\t%f\t%f\t%f\t%f\n", i, LeftV[0][i](), LeftV[1][i](), LeftV[2][i](), LeftV[3][i](), LeftV[4][i]());
-    }
-    printf("RIGHT Singular Vectors:\n");
-    for (int i=0; i < RightV[0].Len(); i++) {
-        printf("%d\t%f\t%f\t%f\t%f\t%f\n", i, RightV[0][i](), RightV[1][i](), RightV[2][i](), RightV[3][i](), RightV[4][i]());
-    }
-    TFltV EigValV;
-    TVec<TFltV> EigV;
-    TSnap::GetEigVec(UG, 20, EigValV, EigV);
-    printf("Eigen Values:\n");
-    for (int i =0; i < EigValV.Len(); i++) {
-        printf("%d\t%f\n", i, EigValV[i]()); }
-    printf("Eigen Vectors %d:\n", EigV.Len());
-    for (int i =0; i < EigV[0].Len(); i++) {
-        printf("%d\t%f\t%f\t%f\t%f\t%f\n", i, EigV[0][i](), EigV[1][i](), EigV[2][i](), EigV[3][i](), EigV[4][i]());
-    }
-    
+int main(int argc, char* argv[]) {
+    std::string welcomeMessage = "Welcome to the Graph Algorithm Application with Stanford's SNAP (snap.stanford.edu). Jonathan Ginsburg (C) Ocober 21, 2015.";
+    Print(welcomeMessage, true);
+    return Prompt();
 }
