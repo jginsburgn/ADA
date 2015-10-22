@@ -1,0 +1,9 @@
+# Directed network: jonathan.txt 
+# Nodes: 2 Edges: 1
+#NODES	NId	Int:
+1	1
+2	2
+#END
+#EDGES	SrcNId	DstNId	Int:
+1	2	10
+#END

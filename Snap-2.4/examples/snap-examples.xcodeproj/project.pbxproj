@@ -943,6 +943,7 @@
 		848A6F8316D0604200E6F7D3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		848A6F8516D0604200E6F7D3 /* snap_examples.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = snap_examples.1; sourceTree = "<group>"; };
 		848A722A16D1A36700E6F7D3 /* docs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = docs; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1CA29B1BD898ED00C7FB9D /* jonathan.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = jonathan.txt; sourceTree = "<group>"; };
 		FA5C78641BD75F1800F66F34 /* LocalHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalHelper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1368,6 +1369,7 @@
 				8485DF3516CE238300535B6B /* stdafx.cpp */,
 				8485DF3616CE238300535B6B /* stdafx.h */,
 				8485DF3716CE238300535B6B /* targetver.h */,
+				FA1CA29B1BD898ED00C7FB9D /* jonathan.txt */,
 				8485DF3816CE238300535B6B /* testgraph */,
 				8485DF3916CE238300535B6B /* testgraph.cpp */,
 				FA5C78641BD75F1800F66F34 /* LocalHelper.h */,
