@@ -259,6 +259,58 @@ void DijkstrasShortestPaths(THash<TInt, TInt> & distance, THash<TInt, TInt> & pr
     }
 }
 
+//Floyd-Warshall's Shortest Paths
+TPair<TInt, TInt> BuildPair(TInt firstValue, TInt secondValue){
+    TPair<TInt, TInt> pair;
+    pair.Val1 = firstValue;
+    pair.Val2 = secondValue;
+    return pair;
+}
+void GetPathOf(std::string & path, const int origin, const int destination, const THash<TPair<TInt, TInt>, TInt> & successor){
+    if (origin != destination) {
+        path.append(IntToString(origin));
+        path.append(" -> ");
+        GetPathOf(path, successor.GetDat(BuildPair(origin, destination)), destination, successor);
+    }
+    else path.append(IntToString(destination));
+}
+void FloydWarshallsShortestPaths(THash<TPair<TInt, TInt>, TInt> & distance, THash<TPair<TInt, TInt>, TInt> & successor, const PNEANet & graph){
+    for (TNEANet::TNodeI NI = graph->BegNI(); NI < graph->EndNI(); NI++){
+        distance.AddDat(BuildPair(NI.GetId(), NI.GetId())) = 0;
+    }
+    for (TNEANet::TEdgeI EI = graph->BegEI(); EI < graph->EndEI(); EI++){
+        distance.AddDat(BuildPair(EI.GetSrcNId(), EI.GetDstNId())) = GetInfo(EI);
+        successor.AddDat(BuildPair(EI.GetSrcNId(), EI.GetDstNId())) = EI.GetDstNId();
+    }
+    for (TNEANet::TNodeI k = graph->BegNI(); k < graph->EndNI(); k++){
+        for (TNEANet::TNodeI i = graph->BegNI(); i < graph->EndNI(); i++){
+            for (TNEANet::TNodeI j = graph->BegNI(); j < graph->EndNI(); j++){
+                TPair<TInt, TInt> pairIJ = BuildPair(i.GetId(), j.GetId());
+                TPair<TInt, TInt> pairIK = BuildPair(i.GetId(), k.GetId());
+                TPair<TInt, TInt> pairKJ = BuildPair(k.GetId(), j.GetId());
+                if (distance.IsKey(pairIJ)) {
+                    if (distance.IsKey(pairIK) && distance.IsKey(pairKJ)) {
+                        int alternativeDistance = distance.GetDat(pairIK) + distance.GetDat(pairKJ);
+                        if (distance.GetDat(pairIJ) > alternativeDistance) {
+                            distance.GetDat(pairIJ) = alternativeDistance;
+                            if (successor.IsKey(pairIJ)) successor.GetDat(pairIJ) = successor.GetDat(pairIK);
+                            else successor.AddDat(pairIJ) = successor.GetDat(pairIK);
+                        }
+                    }
+                }
+                else {
+                    if (distance.IsKey(pairIK) && distance.IsKey(pairKJ)) {
+                        int alternativeDistance = distance.GetDat(pairIK) + distance.GetDat(pairKJ);
+                        distance.AddDat(pairIJ) = alternativeDistance;
+                        if (successor.IsKey(pairIJ)) successor.GetDat(pairIJ) = successor.GetDat(pairIK);
+                        else successor.AddDat(pairIJ) = successor.GetDat(pairIK);
+                    }
+                }
+            }
+        }
+    }
+}
+
 //Miscellaneous:
 void ShowOperationTime(int wait){
     std::string timeMessage = "Operation completed in: ";
@@ -297,6 +349,7 @@ int Prompt(){
         PrintMenu();
         int choice = ReadInt("Enter your choice: ");
         PrintEmptyLine();
+        std::system ("clear");
         StartChronometer();
         if (choice == 0) {
             Print("Process terminated...", true);
@@ -377,7 +430,29 @@ int Prompt(){
             }
         }
         else if (choice == 10){
-            
+            THash<TPair<TInt, TInt>, TInt> distance;
+            THash<TPair<TInt, TInt>, TInt> successor;
+            FloydWarshallsShortestPaths(distance, successor, graph);
+            while (true) {
+                PrintNodes(graph);
+                int origin = ReadInt("Enter origin node's id, or -1 to finish: ");
+                if (origin == -1) break;
+                int destination = ReadInt("Enter the destination node's id: ");
+                if (!graph->IsNode(origin) || !graph->IsNode(destination)) {
+                    continue;
+                }
+                std::string path;
+                GetPathOf(path, origin, destination, successor);
+                std::string message = "To get from ";
+                message.append(IntToString(origin));
+                message.append(" to ");
+                message.append(IntToString(destination));
+                message.append(" it costs: ");
+                message.append(IntToString(distance.GetDat(BuildPair(origin, destination))));
+                message.append(", and you need to follow this path:\n\t");
+                message.append(path);
+                Print(message, true);
+            }
         }
         else if (choice == 11){
             PrintGraphDetails(graph);
@@ -386,7 +461,11 @@ int Prompt(){
             SaveGraph(graph);
         }
         else if (choice == 13){
-            LoadGraph(graph);
+            try {
+                LoadGraph(graph);
+            } catch (TPt<TExcept> e) {
+                Print(e->GetMsgStr().CStr(), true);
+            }
         }
         ShowOperationTime(0);
     }
