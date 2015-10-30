@@ -91,4 +91,11 @@
          location = "group:GraphsSandbox/GraphsSandbox.xcodeproj">
       </FileRef>
    </Group>
+   <Group
+      location = "container:"
+      name = "Computer Graphics">
+      <FileRef
+         location = "group:2DFigureTransformation/2DFigureTransformation.xcodeproj">
+      </FileRef>
+   </Group>
 </Workspace>

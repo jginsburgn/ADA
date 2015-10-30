@@ -4,7 +4,7 @@ For snap:
     3. In that same group there is a helper file called LocalHelper.h which contains aiding functions
     4. Note that there is a file named excerciseGraph.txt in this directory; it is the file describing the graph shown in "Problema Practico 2. Algoritmos de grafos.pdf" and can be loaded using option 13 of the compiled program in question
     5. Compilation can be achieved directly through Xcode
-    6. For compilation from console go to ./Snap-2.4/examples/
+    6. For compilation from console go to ./Snap-2.4/ and issue command: make all
       
 For Boost:
 	1. For compilation go to ./Boost and execute g++ -I boost_1_59_0 GraphsAlgorithmsImplementation.cpp
