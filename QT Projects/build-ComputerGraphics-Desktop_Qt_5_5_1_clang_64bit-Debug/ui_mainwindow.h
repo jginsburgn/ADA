@@ -29,7 +29,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *generalLayout;
     QGraphicsView *graphicsView;
     QHBoxLayout *drawLayout;
@@ -45,18 +45,19 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(399, 306);
+        MainWindow->resize(832, 573);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(11, 12, 374, 280));
-        generalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(11, 12, 811, 551));
+        generalLayout = new QVBoxLayout(layoutWidget);
         generalLayout->setSpacing(6);
         generalLayout->setContentsMargins(11, 11, 11, 11);
         generalLayout->setObjectName(QStringLiteral("generalLayout"));
+        generalLayout->setSizeConstraint(QLayout::SetNoConstraint);
         generalLayout->setContentsMargins(0, 0, 0, 0);
-        graphicsView = new QGraphicsView(widget);
+        graphicsView = new QGraphicsView(layoutWidget);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
 
         generalLayout->addWidget(graphicsView);
@@ -64,17 +65,17 @@ public:
         drawLayout = new QHBoxLayout();
         drawLayout->setSpacing(6);
         drawLayout->setObjectName(QStringLiteral("drawLayout"));
-        figuresMenu = new QComboBox(widget);
+        figuresMenu = new QComboBox(layoutWidget);
         figuresMenu->setObjectName(QStringLiteral("figuresMenu"));
 
         drawLayout->addWidget(figuresMenu);
 
-        drawButton = new QPushButton(widget);
+        drawButton = new QPushButton(layoutWidget);
         drawButton->setObjectName(QStringLiteral("drawButton"));
 
         drawLayout->addWidget(drawButton);
 
-        additionalInfoDraw = new QLineEdit(widget);
+        additionalInfoDraw = new QLineEdit(layoutWidget);
         additionalInfoDraw->setObjectName(QStringLiteral("additionalInfoDraw"));
         additionalInfoDraw->setEnabled(false);
 
@@ -86,17 +87,17 @@ public:
         transformLayout = new QHBoxLayout();
         transformLayout->setSpacing(6);
         transformLayout->setObjectName(QStringLiteral("transformLayout"));
-        transformationsMenu = new QComboBox(widget);
+        transformationsMenu = new QComboBox(layoutWidget);
         transformationsMenu->setObjectName(QStringLiteral("transformationsMenu"));
 
         transformLayout->addWidget(transformationsMenu);
 
-        transformButton = new QPushButton(widget);
+        transformButton = new QPushButton(layoutWidget);
         transformButton->setObjectName(QStringLiteral("transformButton"));
 
         transformLayout->addWidget(transformButton);
 
-        additionalInfoTransform = new QLineEdit(widget);
+        additionalInfoTransform = new QLineEdit(layoutWidget);
         additionalInfoTransform->setObjectName(QStringLiteral("additionalInfoTransform"));
         additionalInfoTransform->setEnabled(false);
 

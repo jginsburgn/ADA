@@ -6,24 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>399</width>
-    <height>306</height>
+    <width>832</width>
+    <height>573</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>11</x>
       <y>12</y>
-      <width>374</width>
-      <height>280</height>
+      <width>811</width>
+      <height>551</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="generalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetNoConstraint</enum>
+     </property>
      <item>
       <widget class="QGraphicsView" name="graphicsView"/>
      </item>

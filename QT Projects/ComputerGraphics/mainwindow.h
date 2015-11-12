@@ -2,7 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDialog>
 #include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsItem>
+#include <QDebug>
 
 namespace Ui {
 class MainWindow;
@@ -41,6 +45,10 @@ private:
     const QString TM_X_SCALING = "x Scaling";
     const QString TM_Y_SCALING = "y Scaling";
 
+    const float TICK_LENGTH = 5;
+
+    void DrawVerticalTick(const float & pos);
+    void DrawHorizontalTick(const float & pos);
     void DrawAxes();
     void BuildComboBoxes();
 };
