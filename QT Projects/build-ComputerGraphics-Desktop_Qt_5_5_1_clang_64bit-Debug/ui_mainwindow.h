@@ -13,7 +13,9 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -28,10 +30,12 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QWidget *layoutWidget;
+    QWidget *widget;
     QVBoxLayout *verticalLayout;
     QGraphicsView *graphicsView;
-    QPushButton *runButton;
+    QHBoxLayout *horizontalLayout;
+    QComboBox *comboBox;
+    QPushButton *drawFigure;
     QMenuBar *menuBar;
     QStatusBar *statusBar;
 
@@ -39,37 +43,52 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(670, 453);
+        MainWindow->resize(920, 706);
         MainWindow->setCursor(QCursor(Qt::CrossCursor));
+        MainWindow->setMouseTracking(true);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 14, 651, 391));
-        verticalLayout = new QVBoxLayout(layoutWidget);
+        centralWidget->setMouseTracking(true);
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(9, 12, 901, 581));
+        verticalLayout = new QVBoxLayout(widget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        graphicsView = new QGraphicsView(layoutWidget);
+        graphicsView = new QGraphicsView(widget);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
         graphicsView->viewport()->setProperty("cursor", QVariant(QCursor(Qt::CrossCursor)));
-        graphicsView->setMouseTracking(false);
+        graphicsView->setMouseTracking(true);
 
         verticalLayout->addWidget(graphicsView);
 
-        runButton = new QPushButton(layoutWidget);
-        runButton->setObjectName(QStringLiteral("runButton"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        comboBox = new QComboBox(widget);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
 
-        verticalLayout->addWidget(runButton);
+        horizontalLayout->addWidget(comboBox);
+
+        drawFigure = new QPushButton(widget);
+        drawFigure->setObjectName(QStringLiteral("drawFigure"));
+        drawFigure->setMouseTracking(true);
+
+        horizontalLayout->addWidget(drawFigure);
+
+
+        verticalLayout->addLayout(horizontalLayout);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 670, 22));
+        menuBar->setGeometry(QRect(0, 0, 920, 22));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
+        statusBar->setMouseTracking(true);
         MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
@@ -80,7 +99,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Computer Graphics", 0));
-        runButton->setText(QApplication::translate("MainWindow", "Run!", 0));
+        drawFigure->setText(QApplication::translate("MainWindow", "Draw Figure", 0));
     } // retranslateUi
 
 };
