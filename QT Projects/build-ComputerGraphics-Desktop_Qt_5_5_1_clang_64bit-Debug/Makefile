@@ -174,6 +174,7 @@ DIST          = ../../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		../ComputerGraphics/.qmake.stash \
 		../../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -358,6 +359,7 @@ Makefile: ../ComputerGraphics/ComputerGraphics.pro ../../../../Qt/5.5/clang_64/m
 		../../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -504,6 +506,7 @@ Makefile: ../ComputerGraphics/ComputerGraphics.pro ../../../../Qt/5.5/clang_64/m
 ../../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf:
 ../../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf:
