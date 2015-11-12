@@ -1,0 +1,7 @@
+echo 'Please be sure to be in the QT projects directory for translation to Xcode.'
+echo -n 'Are you in it [Y/n]? '
+read input
+if [ $input == 'Y' ]; then
+    echo 'Translating...'
+    qmake -spec macx-xcode
+fi

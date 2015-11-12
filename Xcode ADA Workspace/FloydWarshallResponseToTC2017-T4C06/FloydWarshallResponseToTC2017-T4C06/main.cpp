@@ -13,7 +13,7 @@
 void PM(int * * matrix, int rows, int columns){
     for (int i = 0; i < rows; ++i) {
         for (int j = 0; j < columns; ++j) {
-            if (matrix[i][j] == INT_MAX) std::cout << "∞" << "\t";
+            if (matrix[i][j] == 1000) std::cout << "∞" << "\t";
             else std::cout << matrix[i][j] << "\t";
         }
         std::cout << std::endl;
@@ -34,7 +34,7 @@ void FW(Graph<int, int> & g){
     for (int i = 0; i < V; ++i) {
         for (int j = 0; j < V; ++j) {
             if (i == j) dist[i][j] = 0;
-            else dist[i][j] = INT_MAX;
+            else dist[i][j] = 1000;
         }
     }
     
@@ -44,18 +44,16 @@ void FW(Graph<int, int> & g){
         int destination = *(e->getDestination()->getInfo());
         dist[origin - 1][destination - 1] = *e->getInfo();
     }
-    for (int k = 1; k <= V; ++k) {
+    for (int k = 0; k < V; ++k) {
         PM(dist, V, V);
-        for (int i = 1; i <= V; ++i) {
-            for (int j = 1; j <= V; ++j) {
-                if (dist[i - 1][k - 1] == INT_MAX || dist[k - 1][j - 1] == INT_MAX) {
-                }
-                else if (dist[i - 1][k - 1] + dist[k - 1][j - 1] < dist[i - 1][j - 1]) {
-                    dist[i - 1][j - 1] = dist[i - 1][k - 1] + dist[k - 1][j - 1];
+        for (int i = 0; i < V; ++i) {
+            for (int j = 0; j < V; ++j) {                    if (dist[i][k] + dist[k][j] < dist[i][j]) {
+                    dist[i][j] = dist[i][k] + dist[k][j];
                 }
             }
         }
     }
+    PM(dist, V, V);
 }
 
 int main(int argc, const char * argv[]) {
@@ -74,6 +72,7 @@ int main(int argc, const char * argv[]) {
     addE(6, 9, g, 1);
     addE(8, 7, g, 4);
     FW(g);
+    
     
     
     return 0;
