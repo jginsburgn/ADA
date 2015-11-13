@@ -1,0 +1,6 @@
+echo 'Make sure everything is prepared by running sh-Prepare at least one time'
+echo 'Compiling...'
+cd ./build-ComputerGraphics-Desktop_Qt_5_5_1_clang_64bit-Debug
+make
+cd ..
+./sh-Run
