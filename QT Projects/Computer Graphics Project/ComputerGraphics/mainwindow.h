@@ -8,6 +8,7 @@
 #include <QGraphicsItem>
 #include <QDebug>
 
+#include "Painter.h"
 #include "Helper.h"
 
 
@@ -30,9 +31,6 @@ private slots:
     void on_transformationsMenu_activated(const QString &arg1);
 
 private:
-    Ui::MainWindow *ui;
-    QGraphicsScene *scene;
-
     const QString FM_POLYGON = "n Sided Polygon";
     const QString FM_ARC = "x Angled Arc";
     const QString FM_CUBE = "Cube";
@@ -49,12 +47,19 @@ private:
     const QString TM_Y_SCALING = "y Scaling";
 
     const float TICK_LENGTH = 5;
+    
+    Ui::MainWindow *ui;
+    QGraphicsScene *scene;
+    Painter painter;
+    QString figureToDraw;
+    QString transformToApply;
 
     void DrawVerticalTick(const float & pos);
     void DrawHorizontalTick(const float & pos);
     void DrawAxes();
     void BuildComboBoxes();
     void PrepareUI();
+    void CleanPlane();
 };
 
 #endif // MAINWINDOW_H

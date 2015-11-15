@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    painter.cpp
+    painter.cpp \
+    figure.cpp
 
 HEADERS  += mainwindow.h \
-    painter.h
+    painter.h \
+    figure.h
 
 FORMS    += mainwindow.ui

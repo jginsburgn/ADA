@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		AA51C20453D2DA6F8823BB5E /* Qt Preprocess */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59 /* Build configuration list for PBXNativeTarget "Computer Graphics" */;
+			buildPhases = (
+				5E618435888B9D49F8540165 /* Qt Qmake */,
+				7EF0942E79C014DCEC8976BC /* Qt Preprocessors */,
+			);
+			dependencies = (
+			);
+			name = "Qt Preprocess";
+			productName = "Qt Preprocess";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		12FFB82DAC0A7F70DEF9687E /* QtGui.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 783B331858C99FFD632F773B /* QtGui.framework */; };
+		4435EEB67719A6A19FAA2DB7 /* moc_mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = DC373BEA720C848332F01FBC /* moc_mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
+		494BFD3FFB80002BD9289960 /* mainwindow.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = A992F445EBEF2043F1631E16 /* mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
+		4C10EE0DFE43DA14CE68DAAA /* main.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 8D3182C9275A87AA4547239A /* main.cpp */; settings = {ATTRIBUTES = (); }; };
+		7CE50E08D3471F23C9775964 /* figure.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = ED7DC6E6A7BBA72615671F3F /* figure.cpp */; settings = {ATTRIBUTES = (); }; };
+		8529162684E8CE69037B89E6 /* QtCore.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = C8F8F4CAC638C496C2EB8C35 /* QtCore.framework */; };
+		8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = D4B32C2222F82AC56BADEB21 /* OpenGL.framework */; };
+		8D267F2E4776F0ECA2F49DC8 /* IOKit.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = A1A67BEAA744704B29168D39 /* IOKit.framework */; };
+		A99B2AA0F9CBBDD12BA126A4 /* DiskArbitration.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */; };
+		D69F75B55CE1E744E47AA317 /* painter.cpp in Compile Sources */ = {isa = PBXBuildFile; fileRef = 9E62514765FB34069BF09658 /* painter.cpp */; settings = {ATTRIBUTES = (); }; };
+		E45E51A644D5FC9F942ECE55 /* AGL.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */; };
+		FB15B59BD778EDBF0A74C73A /* QtWidgets.framework in Link Binary With Libraries */ = {isa = PBXBuildFile; fileRef = 0AD50BF10A75F0A857AEA958 /* QtWidgets.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA6404DD1BF7475300C52726 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DB9C3763D02B1415CD9D565 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA51C20453D2DA6F8823BB5E;
+			remoteInfo = "Qt Preprocess";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AD50BF10A75F0A857AEA958 /* QtWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtWidgets.framework; path = /Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework; sourceTree = "<absolute>"; };
+		2043E1895CA7334FB9EC396E /* mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mainwindow.h; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/mainwindow.h"; sourceTree = "<absolute>"; };
+		20D3B1B2273E774B773FD0A3 /* painter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = painter.h; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/painter.h"; sourceTree = "<absolute>"; };
+		2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiskArbitration.framework; path = /System/Library/Frameworks/DiskArbitration.framework; sourceTree = "<absolute>"; };
+		783B331858C99FFD632F773B /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework; sourceTree = "<absolute>"; };
+		85A80DF0CDFF612652699682 /* mainwindow.ui */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = mainwindow.ui; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/mainwindow.ui"; sourceTree = "<absolute>"; };
+		8D3182C9275A87AA4547239A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/main.cpp"; sourceTree = "<absolute>"; };
+		8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		94B2AC1D0E495B3856CBE3E4 /* .qmake.stash */ = {isa = PBXFileReference; lastKnownFileType = text; name = .qmake.stash; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/.qmake.stash"; sourceTree = "<absolute>"; };
+		9710959398B67B4ADA884FAC /* figure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = figure.h; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/figure.h"; sourceTree = "<absolute>"; };
+		9B45A5F3435699AF5D3A33E8 /* ComputerGraphics.pro */ = {isa = PBXFileReference; lastKnownFileType = text; name = ComputerGraphics.pro; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/ComputerGraphics.pro"; sourceTree = "<absolute>"; };
+		9E62514765FB34069BF09658 /* painter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = painter.cpp; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/painter.cpp"; sourceTree = "<absolute>"; };
+		A1A67BEAA744704B29168D39 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		A6E6EF6F14377441A61836D4 /* ui_mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ui_mainwindow.h; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/ui_mainwindow.h"; sourceTree = "<absolute>"; };
+		A992F445EBEF2043F1631E16 /* mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = mainwindow.cpp; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/mainwindow.cpp"; sourceTree = "<absolute>"; };
+		C8F8F4CAC638C496C2EB8C35 /* QtCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtCore.framework; path = /Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework; sourceTree = "<absolute>"; };
+		D4B32C2222F82AC56BADEB21 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		DC373BEA720C848332F01FBC /* moc_mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = moc_mainwindow.cpp; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/moc_mainwindow.cpp"; sourceTree = "<absolute>"; };
+		ED7DC6E6A7BBA72615671F3F /* figure.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = figure.cpp; path = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/figure.cpp"; sourceTree = "<absolute>"; };
+		F89E2811F7214FBF80AD5635 /* Computer Graphics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Computer Graphics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1C883685E82D5676953459A /* Link Binary With Libraries */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB15B59BD778EDBF0A74C73A /* QtWidgets.framework in Link Binary With Libraries */,
+				12FFB82DAC0A7F70DEF9687E /* QtGui.framework in Link Binary With Libraries */,
+				8529162684E8CE69037B89E6 /* QtCore.framework in Link Binary With Libraries */,
+				A99B2AA0F9CBBDD12BA126A4 /* DiskArbitration.framework in Link Binary With Libraries */,
+				8D267F2E4776F0ECA2F49DC8 /* IOKit.framework in Link Binary With Libraries */,
+				8771A8C96E9C391044035D99 /* OpenGL.framework in Link Binary With Libraries */,
+				E45E51A644D5FC9F942ECE55 /* AGL.framework in Link Binary With Libraries */,
+			);
+			name = "Link Binary With Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12E908B8A1C3C07C115504F5 /* Sources [uic] */ = {
+			isa = PBXGroup;
+			children = (
+				85A80DF0CDFF612652699682 /* mainwindow.ui */,
+			);
+			name = "Sources [uic]";
+			sourceTree = "<Group>";
+		};
+		25B08E2869634E9BCBA333A2 /* Generated Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DC373BEA720C848332F01FBC /* moc_mainwindow.cpp */,
+				A6E6EF6F14377441A61836D4 /* ui_mainwindow.h */,
+			);
+			name = "Generated Sources";
+			sourceTree = "<Group>";
+		};
+		2EB56BE3C2D93CDAB0C52E67 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8D3182C9275A87AA4547239A /* main.cpp */,
+				2043E1895CA7334FB9EC396E /* mainwindow.h */,
+				A992F445EBEF2043F1631E16 /* mainwindow.cpp */,
+				20D3B1B2273E774B773FD0A3 /* painter.h */,
+				9E62514765FB34069BF09658 /* painter.cpp */,
+				9710959398B67B4ADA884FAC /* figure.h */,
+				ED7DC6E6A7BBA72615671F3F /* figure.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<Group>";
+		};
+		74B182DB50CB5611B5C1C297 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B45A5F3435699AF5D3A33E8 /* ComputerGraphics.pro */,
+				94B2AC1D0E495B3856CBE3E4 /* .qmake.stash */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<Group>";
+		};
+		AF39DD055C3EF8226FBE929D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AD50BF10A75F0A857AEA958 /* QtWidgets.framework */,
+				783B331858C99FFD632F773B /* QtGui.framework */,
+				C8F8F4CAC638C496C2EB8C35 /* QtCore.framework */,
+				2B774D8E4178765CE52EAAF5 /* DiskArbitration.framework */,
+				A1A67BEAA744704B29168D39 /* IOKit.framework */,
+				D4B32C2222F82AC56BADEB21 /* OpenGL.framework */,
+				8D9815BDB5BD9F90D2BC05C5 /* AGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<Group>";
+		};
+		E8C543AB96796ECAA2E65C57 /* Computer Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				2EB56BE3C2D93CDAB0C52E67 /* Sources */,
+				25B08E2869634E9BCBA333A2 /* Generated Sources */,
+				74B182DB50CB5611B5C1C297 /* Supporting Files */,
+				12E908B8A1C3C07C115504F5 /* Sources [uic] */,
+				AF39DD055C3EF8226FBE929D /* Frameworks */,
+				FE0A091FDBFB3E9C31B7A1BD /* Products */,
+			);
+			name = "Computer Graphics";
+			sourceTree = "<Group>";
+		};
+		FE0A091FDBFB3E9C31B7A1BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F89E2811F7214FBF80AD5635 /* Computer Graphics.app */,
+			);
+			name = Products;
+			sourceTree = "<Group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8CD7ED14FB89DBDB0B5E90BE /* Computer Graphics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59 /* Build configuration list for PBXNativeTarget "Computer Graphics" */;
+			buildPhases = (
+				F7E50F631C51CD5B5DC0BC43 /* Compile Sources */,
+				D1C883685E82D5676953459A /* Link Binary With Libraries */,
+				30414803F31797EB689AE508 /* Copy Bundle Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E72F82E22538066CDD6CACF1 /* PBXTargetDependency */,
+			);
+			name = "Computer Graphics";
+			productName = "Computer Graphics";
+			productReference = F89E2811F7214FBF80AD5635 /* Computer Graphics.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6DB9C3763D02B1415CD9D565 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+			};
+			buildConfigurationList = DAC4C1AA5EDEA1C85E9CA5E6 /* Build configuration list for PBXProject "Computer Graphics" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E8C543AB96796ECAA2E65C57 /* Computer Graphics */;
+			productRefGroup = FE0A091FDBFB3E9C31B7A1BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CD7ED14FB89DBDB0B5E90BE /* Computer Graphics */,
+				AA51C20453D2DA6F8823BB5E /* Qt Preprocess */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30414803F31797EB689AE508 /* Copy Bundle Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Copy Bundle Resources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E618435888B9D49F8540165 /* Qt Qmake */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Qt Qmake";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C '/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/' -f 'Computer Graphics.xcodeproj/qt_makeqmake.mak'";
+			showEnvVarsInLog = 0;
+		};
+		7EF0942E79C014DCEC8976BC /* Qt Preprocessors */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Qt Preprocessors";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C '/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/' -f 'Computer Graphics.xcodeproj/qt_preprocess.mak'";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7E50F631C51CD5B5DC0BC43 /* Compile Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C10EE0DFE43DA14CE68DAAA /* main.cpp in Compile Sources */,
+				494BFD3FFB80002BD9289960 /* mainwindow.cpp in Compile Sources */,
+				D69F75B55CE1E744E47AA317 /* painter.cpp in Compile Sources */,
+				7CE50E08D3471F23C9775964 /* figure.cpp in Compile Sources */,
+				4435EEB67719A6A19FAA2DB7 /* moc_mainwindow.cpp in Compile Sources */,
+			);
+			name = "Compile Sources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E72F82E22538066CDD6CACF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA51C20453D2DA6F8823BB5E /* Qt Preprocess */;
+			targetProxy = FA6404DD1BF7475300C52726 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		339EE1B2CC4FC24589A0EA95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/MacBook/Qt/5.5/clang_64/lib,
+					/Users/MacBook/Qt/5.5/clang_64/lib,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					.,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					"/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang",
+				);
+				INFOPLIST_FILE = Info.plist;
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/MacBook/Qt/5.5/clang_64/lib,
+					/System/Library/Frameworks/,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-std=c++11",
+					"-stdlib=libc++",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-stdlib=libc++",
+					"-Wl,-rpath,/Users/MacBook/Qt/5.5/clang_64/lib",
+					"-F/Users/MacBook/Qt/5.5/clang_64/lib",
+				);
+				PRODUCT_NAME = "Computer Graphics";
+				QT_LIBRARY_SUFFIX = "";
+				SDKROOT = macosx;
+				SYMROOT = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/";
+			};
+			name = Release;
+		};
+		3AA6C32AC930069E80220CF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CC = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/MacBook/Qt/5.5/clang_64/lib,
+					/Users/MacBook/Qt/5.5/clang_64/lib,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					.,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					"/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang",
+				);
+				INFOPLIST_FILE = Info.plist;
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
+				LIBRARY_SEARCH_PATHS = (
+					/Users/MacBook/Qt/5.5/clang_64/lib,
+					/System/Library/Frameworks/,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-std=c++11",
+					"-stdlib=libc++",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DQT_WIDGETS_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-stdlib=libc++",
+					"-Wl,-rpath,/Users/MacBook/Qt/5.5/clang_64/lib",
+					"-F/Users/MacBook/Qt/5.5/clang_64/lib",
+				);
+				PRODUCT_NAME = "Computer Graphics";
+				QT_LIBRARY_SUFFIX = _debug;
+				SDKROOT = macosx;
+				SYMROOT = "/Users/MacBook/ADA/Tasks/QT Projects/Computer Graphics Project/ComputerGraphics/";
+			};
+			name = Debug;
+		};
+		6666AA5E688052234F6758D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = (
+					.,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers,
+					.,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					.,
+					"/Users/MacBook/ADA/Tasks/Xcode\\ ADA\\ Workspace",
+					"/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jgn.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "Computer Graphics";
+				QT_LIBRARY_SUFFIX = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		77418F46922677BB04ED38DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					.,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers,
+					/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers,
+					.,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers,
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AGL.framework/Headers,
+					.,
+					"/Users/MacBook/ADA/Tasks/Xcode\\ ADA\\ Workspace",
+					"/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jgn.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "Computer Graphics";
+				QT_LIBRARY_SUFFIX = _debug;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6CC3B5D2136C7CD6A5CF5A59 /* Build configuration list for PBXNativeTarget "Computer Graphics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77418F46922677BB04ED38DD /* Debug */,
+				6666AA5E688052234F6758D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DAC4C1AA5EDEA1C85E9CA5E6 /* Build configuration list for PBXProject "Computer Graphics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AA6C32AC930069E80220CF1 /* Debug */,
+				339EE1B2CC4FC24589A0EA95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6DB9C3763D02B1415CD9D565 /* Project object */;
+}
