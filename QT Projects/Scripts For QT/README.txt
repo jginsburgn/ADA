@@ -1,0 +1,1 @@
+Please move the required script to the directory containing the <.pro> file created by Qt Creator when initializing a project or created manually following the tutorial at http://doc.qt.io/qt-4.8/qmake-tutorial.html
