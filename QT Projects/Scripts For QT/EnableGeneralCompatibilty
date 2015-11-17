@@ -15,7 +15,7 @@ echo -n 'before trying to use your code: 1) set the C++ standard by adding a lin
 echo -n 'add all the additional directories where other files might '
 echo -n 'be in like: <INCLUDEPATH += /Users/MacBook/ADA/Tasks/Xcode\ ADA\ Workspace/> and like: '
 echo -n '<INCLUDEPATH += "/Users/MacBook/ADA/Tasks/Xcode ADA Workspace/"> (note that you have to repeat each '
-echo 'directory path two times, one without quotation marks and one without them; and 3) list all source files and target name.'
+echo 'directory path two times, one without quotation marks and one without them) and 3) list all source files and target name.'
 echo -n 'Do you wish to proceed with translation of creation of Makefile [Y/n]? '
 read input
 if [ $input == 'Y' ]; then

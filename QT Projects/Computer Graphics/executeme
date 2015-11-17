@@ -1,0 +1,9 @@
+echo -n 'Please add the directory containing the Helper.h file to the <.pro> file contained in this directory, under the <INCLUDEPATH> directive. Please note that you need to keep the quotation marks around the path. You can download the Helper.h file from the following URL: https://github.com/jginsburgn/ADA/blob/master/Xcode%20ADA%20Workspace/Helper.h. Additionally please make sure that you have installed qmake, which is available from http://www.qt.io/download-open-source/. Enter done when ready or any other word to abort: '
+read input
+if [ $input == 'done' ]; then
+    echo 'Compiling...'
+    qmake
+    make
+    echo 'Done, product located in the current directory. Executing app...'
+    ./Computer\ Graphics.app/Contents/MacOS/Computer\ Graphics
+fi
