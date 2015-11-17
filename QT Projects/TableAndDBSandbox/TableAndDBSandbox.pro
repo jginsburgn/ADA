@@ -23,8 +23,3 @@ CONFIG += c++11
 
 INCLUDEPATH += "/Users/MacBook/ADA/Tasks/Xcode ADA Workspace/"
 INCLUDEPATH += /Users/MacBook/ADA/Tasks/Xcode\ ADA\ Workspace/
-
-#DESTDIR = ./Product
-#OBJECTS_DIR = ./Objects
-#MOC_DIR = ./MOCFiles
-#UI_DIR = ./UIFiles
