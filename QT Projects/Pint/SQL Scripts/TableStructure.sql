@@ -1,4 +1,4 @@
-
+﻿
 --We create all tables shown in the ERD from left to right and up to down.
 --Attributes are added in the following order: intrinsic from left to right,
 --and foreign keys in anti-clockwise direction starting from upper left.
@@ -6,6 +6,8 @@
 --is appended to the end of the attribute specification stating their
 --correspondence. In general, serial keys are added to attributes.
 --Many to many caused tables are added to the end of the construction:
+
+begin transaction;
 
 create table entity_kinds (
     id serial primary key,
@@ -29,7 +31,7 @@ create table emails (
 
 create table email_phone_kinds (
     id serial primary key,
-    kind text not null,
+    kind text not null
 );
 
 create table locations (
@@ -75,7 +77,7 @@ create table areas (
     description text not null,
     measure decimal not null,
     unit_price decimal not null,
-    a_work integer not null, -- This is a foreign key to works
+    a_work integer not null -- This is a foreign key to works
 );
 
 create table works (
@@ -97,7 +99,7 @@ create table products (
     entity integer not null,
     waterproofing integer,
     kind integer not null,
-    units_of_measurement integer not null
+    unit_of_measurement integer not null
 );
 
 create table units_of_measurement (
@@ -260,3 +262,5 @@ references works(id);
 alter table works_products
 add foreign key (product)
 references products(id);
+
+commit;
