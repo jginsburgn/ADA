@@ -43,7 +43,7 @@ public:
         }
         return answer;
     }
-    
+
     template <class T>
     static int getIndexOf(const T & object, const std::vector<T> & objects){
         int index = -1;
@@ -55,7 +55,7 @@ public:
         }
         return index;
     }
-    
+
     static long double stringToLongDouble(std::string value){
         long double retVal =  0;
         try {
@@ -73,7 +73,7 @@ public:
         }
         return retVal;
     }
-    
+
     static float stringToFloat(std::string value){
         float retVal =  0;
         try {
@@ -91,14 +91,14 @@ public:
         }
         return retVal;
     }
-    
+
     static bool stringIsNumber(const std::string& s)
     {
         std::string::const_iterator it = s.begin();
         while (it != s.end() && std::isdigit(*it)) ++it;
         return !s.empty() && it == s.end();
     }
-    
+
     static std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
         std::stringstream ss(s);
         std::string item;
@@ -107,13 +107,13 @@ public:
         }
         return elems;
     }
-    
+
     static std::vector<std::string> split(const std::string &s, char delim) {
         std::vector<std::string> elems;
         split(s, delim, elems);
         return elems;
     }
-    
+
     static std::string readLine(std::string prompt){
         std::cout << prompt;
         std::cout.flush();
@@ -128,11 +128,11 @@ public:
         }
         return input;
     }
-    
+
     static void printSpace(){
         Helper::print("");
     }
-    
+
     static int menu(std::string name, std::string options[], int availableOptions){
         Helper::print("");
         Helper::print("-----> Welcome to the " + name + " menu:");
@@ -143,11 +143,11 @@ public:
         Helper::print("");
         return readValue;
     }
-    
+
     static std::string intToString(int integer){
         return std::to_string(integer);
     } //Converts from int to string.
-    
+
     static std::string charToString(char character){
         std::stringstream ss;
         std::string s;
@@ -155,20 +155,20 @@ public:
         ss >> s;
         return s;
     } //Converts from a charatcter to a string.
-    
+
     static void print(std::string message){
         std::cout << message << std::endl;
     } //Prints a message of type string.
-    
+
     template <typename T>
     static T read(std::string prompt){
         T retVal;
         std::cout << prompt;
         std::cin >> retVal;
-        
+
         return retVal;
     } //Reads from console and returns value.
-    
+
     template <typename T>
     static void printMatrix(T** matrix, int rows, int columns){
         for (int i = 0; i < rows; ++i) {
@@ -178,7 +178,7 @@ public:
             std::cout << std::endl;
         }
     } //Prints a matrix (assumes T has << operator overloaded).
-    
+
     template <typename T>
     static T** buildMatrix(int rows, int columns){
         T** matrix = new T*[rows];
@@ -187,9 +187,9 @@ public:
         }
         return matrix;
     } //Builds a newly allocated bidimensional array (remember to destroy).
-    
+
     template <typename T>
-    static void destroyMatrix(T** matrix, int rows, int columns){
+    static void destroyMatrix(T** matrix, int rows){
         for (int i = 0; i < rows; ++i) {
             delete [] matrix[i];
         }
