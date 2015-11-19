@@ -21,5 +21,11 @@ FORMS    += mainwindow.ui
 
 CONFIG += c++11
 
+#Adding libraries for connecting to PostgreSQL
+LIBS += /usr/local/Cellar/libpqxx/4.0.1/lib/libpqxx.a -lpq
+
+#The line below is for including all headers of libpqxx.a
+INCLUDEPATH += /usr/local/Cellar/libpqxx/4.0.1/include/
+
 INCLUDEPATH += "/Users/MacBook/ADA/Tasks/Xcode ADA Workspace/"
 INCLUDEPATH += /Users/MacBook/ADA/Tasks/Xcode\ ADA\ Workspace/
