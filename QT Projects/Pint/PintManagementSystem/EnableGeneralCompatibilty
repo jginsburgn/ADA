@@ -1,0 +1,33 @@
+echo ''
+echo ''
+echo -n 'This tool is for preparation of Qt Projects in Mac. By Jonathan Ginsburg (C) November 15, 2015. '
+echo -n 'If you wish to abort, you still have the option of working with your project in Qt Creator, '
+echo -n 'just by installing it, double-clicking the <.pro> file and following onscreen instructions. '
+echo -n 'It is important to note two things: (i) Qt Creator is great for designing the various UI forms; and, '
+echo -n '(ii) Unfortunately its debugger is not as good. Therefore, this is where this tool becomes handy: '
+echo -n 'You can translate your project to Xcode, and combine usage with Qt Creator: the former for debugging, '
+echo -n 'and the latter for UI form designing. Additionally, you can create a Makefile to build your project '
+echo -n 'directly from console by running make. However, you must be warned: each of the three options for building '
+echo -n 'namely Qt Creator, Xcode and Make will have their own compiled version of the product but the source '
+echo -n 'code will be shared, so do not worry too much for if you make changes in one way the others will absorb such '
+echo -n 'modifications after undergoing compilation. Finally, please add directly in the <.pro> file the tweaks needed '
+echo -n 'before trying to use your code: 1) set the C++ standard by adding a line like <CONFIG += c++11>, 2) '
+echo -n 'add all the additional directories where other files might '
+echo -n 'be in like: <INCLUDEPATH += /Users/MacBook/ADA/Tasks/Xcode\ ADA\ Workspace/> and like: '
+echo -n '<INCLUDEPATH += "/Users/MacBook/ADA/Tasks/Xcode ADA Workspace/"> (note that you have to repeat each '
+echo 'directory path two times, one without quotation marks and one without them; and 3) list all source files and target name.'
+echo -n 'Do you wish to proceed with translation of creation of Makefile [Y/n]? '
+read input
+if [ $input == 'Y' ]; then
+    echo 'Make sure you are currently in the directory containing the <.pro> file and have added your tweaks to it.'
+    echo -n 'Would you like to translate the project to Xcode[Y/n]? '
+    read input
+    if [ $input == 'Y' ]; then
+        qmake -spec macx-xcode
+    fi
+    echo -n 'Would you like to create a Makefile[Y/n]? '
+    read input
+    if [ $input == 'Y' ]; then
+        qmake
+    fi
+fi

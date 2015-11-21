@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2015-11-16T20:34:46
+# Project created by QtCreator 2015-11-21T04:13:12
 #
 #-------------------------------------------------
 
@@ -8,19 +8,20 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = "Table And DB Sandbox"
+TARGET = "Pint MS"
 TEMPLATE = app
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    model.cpp
+        loginwindow.cpp \
+    mainmenu.cpp
 
-HEADERS  += mainwindow.h\
-            Helper.h \
-    model.h \
-    GeneralQt.h \
+HEADERS  += loginwindow.h\
+            Helper.h\
+            GeneralQt.h \
+    mainmenu.h
 
-FORMS    += mainwindow.ui
+FORMS    += loginwindow.ui \
+    mainmenu.ui
 
 CONFIG += c++11
 
@@ -35,5 +36,5 @@ INCLUDEPATH += "/Users/MacBook/ADA/Tasks/Xcode ADA Workspace/"
 INCLUDEPATH += /Users/MacBook/ADA/Tasks/Xcode\ ADA\ Workspace/
 
 #This is for the GeneralQt.h
-INCLUDEPATH += "../General Qt Code/"
-INCLUDEPATH += ../General\ Qt\ Code/
+INCLUDEPATH += "../../General Qt Code/"
+INCLUDEPATH += ../../General\ Qt\ Code/
