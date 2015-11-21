@@ -3,7 +3,7 @@
 
 int main(int, char *argv[])
 {
-  pqxx::connection c("dbname=test user=MacBook host=localhost");
+  pqxx::connection c("dbname=test user=test host=localhost password=123456");
   pqxx::work txn(c);
 
   pqxx::result r = txn.exec(

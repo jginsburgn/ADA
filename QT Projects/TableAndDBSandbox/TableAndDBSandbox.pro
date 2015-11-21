@@ -12,10 +12,13 @@ TARGET = "Table And DB Sandbox"
 TEMPLATE = app
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    model.cpp
 
 HEADERS  += mainwindow.h\
-            Helper.h
+            Helper.h \
+    model.h \
+    GeneralQt.h \
 
 FORMS    += mainwindow.ui
 
@@ -29,3 +32,5 @@ INCLUDEPATH += /usr/local/Cellar/libpqxx/4.0.1/include/
 
 INCLUDEPATH += "/Users/MacBook/ADA/Tasks/Xcode ADA Workspace/"
 INCLUDEPATH += /Users/MacBook/ADA/Tasks/Xcode\ ADA\ Workspace/
+INCLUDEPATH += "../General Qt Code/"
+INCLUDEPATH += ../General\ Qt\ Code/
