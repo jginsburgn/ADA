@@ -1,6 +1,7 @@
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
+#include "pintgd.h"
 #include "Helper.h"
 #include <pqxx/pqxx>
 #include <QMainWindow>

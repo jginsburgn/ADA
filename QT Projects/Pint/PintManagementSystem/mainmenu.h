@@ -1,6 +1,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 
+#include "pintgd.h"
 #include "Helper.h"
 #include <pqxx/pqxx>
 #include <QMainWindow>

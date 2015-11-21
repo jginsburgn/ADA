@@ -13,12 +13,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         loginwindow.cpp \
-    mainmenu.cpp
+    mainmenu.cpp \
+    query.cpp
 
 HEADERS  += loginwindow.h\
             Helper.h\
             GeneralQt.h \
-    mainmenu.h
+    mainmenu.h \
+    pintgd.h \
+    query.h
 
 FORMS    += loginwindow.ui \
     mainmenu.ui

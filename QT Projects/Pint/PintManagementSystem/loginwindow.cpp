@@ -15,7 +15,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::on_loginButton_clicked()
 {
-    ui->statusBar->showMessage("Loging in...");
+    ui->statusBar->showMessage(loggingIn.c_str());
     SystemUser user = {ui->usernameLineEdit->text().toStdString(),
                       ui->passwordLineEdit->text().toStdString()};
     if (Login(user)) {
@@ -25,11 +25,29 @@ void LoginWindow::on_loginButton_clicked()
         connect(mainMenu, SIGNAL(UserLoggedOut()), this, SLOT(UserLoggedOut()));
         mainMenu->show();
     }
+    else if (ui->statusBar->currentMessage().toStdString() != connectionError)
+        ui->statusBar->showMessage(loginFailed.c_str());
 }
 
-bool LoginWindow::Login(SystemUser) const{
-    //pqxx::connection c()
-    return true;
+bool LoginWindow::Login(SystemUser user) const{
+    std::string connDetails = "dbname=" + database + " host=" + host + " user=" +
+            username + " password = " + password;
+    try {
+        pqxx::connection conn(connDetails.c_str());
+        pqxx::work txn(conn);
+        pqxx::result res = txn.exec("select * "
+                           "from system_users "
+                           "where username=" + txn.quote(user.username)
+                           + "and a_password=" + txn.quote(user.password));
+        if (res.size() == 1) return true;
+    }
+    catch (PGSTD::runtime_error e) {
+        ui->statusBar->showMessage(connectionError.c_str());
+    }
+    catch (PGSTD::logic_error e) {
+        ui->statusBar->showMessage(connectionError.c_str());
+    }
+    return false;
 }
 
 void LoginWindow::Logout() {
@@ -38,5 +56,5 @@ void LoginWindow::Logout() {
 
 void LoginWindow::UserLoggedOut() {
     this->setHidden(false);
-    ui->statusBar->showMessage("Session closed. Login again to user Pint MS.");
+    ui->statusBar->showMessage(sessionFinished.c_str());
 }

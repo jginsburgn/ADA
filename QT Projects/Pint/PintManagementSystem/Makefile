@@ -50,11 +50,13 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		loginwindow.cpp \
-		mainmenu.cpp moc_loginwindow.cpp \
+		mainmenu.cpp \
+		query.cpp moc_loginwindow.cpp \
 		moc_mainmenu.cpp
 OBJECTS       = main.o \
 		loginwindow.o \
 		mainmenu.o \
+		query.o \
 		moc_loginwindow.o \
 		moc_mainmenu.o
 DIST          = /Users/MacBook/Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
@@ -203,9 +205,12 @@ DIST          = /Users/MacBook/Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		PintManagementSystem.pro loginwindow.h \
 		Helper.h \
 		GeneralQt.h \
-		mainmenu.h main.cpp \
+		mainmenu.h \
+		pintgd.h \
+		query.h main.cpp \
 		loginwindow.cpp \
-		mainmenu.cpp
+		mainmenu.cpp \
+		query.cpp
 QMAKE_TARGET  = Pint\ MS
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = Pint\ MS.app/Contents/MacOS/Pint\ MS
@@ -573,8 +578,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents loginwindow.h Helper.h GeneralQt.h mainmenu.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp loginwindow.cpp mainmenu.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents loginwindow.h Helper.h GeneralQt.h mainmenu.h pintgd.h query.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp loginwindow.cpp mainmenu.cpp query.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents loginwindow.ui mainmenu.ui $(DISTDIR)/
 
 
@@ -604,14 +609,158 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: moc_loginwindow.cpp moc_mainmenu.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_loginwindow.cpp moc_mainmenu.cpp
-moc_loginwindow.cpp: mainmenu.h \
+moc_loginwindow.cpp: pintgd.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-public.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/config-public-compiler.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-post.hxx \
+		../../../Xcode\ ADA\ Workspace/Helper.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/result_data.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/statement_parameters.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		mainmenu.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		loginwindow.h
 	/Users/MacBook/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem' -I/usr/local/Cellar/libpqxx/4.0.1/include -I'/Users/MacBook/ADA/Tasks/Xcode ADA Workspace' -I'/Users/MacBook/ADA/Tasks/Xcode\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/ADA\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Workspace' -I'/Users/MacBook/ADA/Tasks/QT Projects/General Qt Code' -I'/Users/MacBook/ADA/Tasks/QT Projects/General\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Qt\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Code' -I/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/MacBook/Qt/5.5/clang_64/lib loginwindow.h -o moc_loginwindow.cpp
 
-moc_mainmenu.cpp: /Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+moc_mainmenu.cpp: pintgd.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-public.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/config-public-compiler.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-post.hxx \
+		../../../Xcode\ ADA\ Workspace/Helper.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/result_data.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/statement_parameters.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		mainmenu.h
 	/Users/MacBook/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem' -I/usr/local/Cellar/libpqxx/4.0.1/include -I'/Users/MacBook/ADA/Tasks/Xcode ADA Workspace' -I'/Users/MacBook/ADA/Tasks/Xcode\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/ADA\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Workspace' -I'/Users/MacBook/ADA/Tasks/QT Projects/General Qt Code' -I'/Users/MacBook/ADA/Tasks/QT Projects/General\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Qt\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Code' -I/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/MacBook/Qt/5.5/clang_64/lib mainmenu.h -o moc_mainmenu.cpp
 
@@ -639,25 +788,256 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 main.o: main.cpp loginwindow.h \
-		mainmenu.h \
+		pintgd.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-public.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/config-public-compiler.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-post.hxx \
+		../../../Xcode\ ADA\ Workspace/Helper.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/result_data.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/statement_parameters.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		mainmenu.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 loginwindow.o: loginwindow.cpp loginwindow.h \
-		mainmenu.h \
+		pintgd.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-public.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/config-public-compiler.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-post.hxx \
+		../../../Xcode\ ADA\ Workspace/Helper.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/result_data.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/statement_parameters.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		mainmenu.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		ui_loginwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginwindow.o loginwindow.cpp
 
 mainmenu.o: mainmenu.cpp mainmenu.h \
+		pintgd.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-public.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/config-public-compiler.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-post.hxx \
+		../../../Xcode\ ADA\ Workspace/Helper.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/result.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/result_data.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/field.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tuple.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connectionpolicy.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/basic_connection.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/connection_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/errorhandler.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/prepared_statement.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/statement_parameters.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/cursor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction_base.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/isolation.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/largeobject.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/dbtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/nontransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notification.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/notify-listen.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pipeline.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/robusttransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/subtransaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablereader.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablestream.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/tablewriter.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transaction.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/transactor.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QCloseEvent \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		ui_mainmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainmenu.o mainmenu.cpp
+
+query.o: query.cpp query.h \
+		pintgd.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/except.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-public.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/config-public-compiler.h \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-pre.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/util.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/strconv.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/internal/libpq-forward.hxx \
+		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/compiler-internal-post.hxx \
+		../../../Xcode\ ADA\ Workspace/Helper.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o query.o query.cpp
 
 moc_loginwindow.o: moc_loginwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginwindow.o moc_loginwindow.cpp

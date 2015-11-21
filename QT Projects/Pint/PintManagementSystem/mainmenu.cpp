@@ -14,6 +14,8 @@ MainMenu::MainMenu(QWidget * parent, SystemUser newUser) :
 {
     ui->setupUi(this);
     user = newUser;
+    std::string message = "Logged in as " + newUser.username + "." ;
+    ui->statusbar->showMessage(message.c_str());
 }
 
 MainMenu::~MainMenu()
@@ -21,7 +23,7 @@ MainMenu::~MainMenu()
     delete ui;
 }
 
-void MainMenu::closeEvent(QCloseEvent *event) {
+void MainMenu::closeEvent(QCloseEvent * /*event*/) {
     //event->ignore(); /*This is to prevent closing the window*/
     emit UserLoggedOut();
 }
