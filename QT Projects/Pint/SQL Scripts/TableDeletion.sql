@@ -12,6 +12,7 @@ drop table quotes cascade;
 drop table contacts cascade;
 drop table areas cascade;
 drop table works cascade;
+drop table system_users cascade;
 drop table products cascade;
 drop table units_of_measurement cascade;
 drop table product_kinds cascade;

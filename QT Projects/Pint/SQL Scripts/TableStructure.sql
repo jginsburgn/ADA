@@ -88,6 +88,13 @@ create table works (
     a_quote integer not null --This is a foreign key to quotes
 );
 
+create table system_users (
+    id serial primary key,
+    username text unique,
+    a_password text, -- Password
+    privilege decimal not null-- The less the greatest
+);
+
 create table products (
     id serial primary key,
     product_name text not null, --Name
