@@ -9,12 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>453</width>
-    <height>347</height>
+    <width>403</width>
+    <height>323</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Add Location</string>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>

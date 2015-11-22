@@ -27,15 +27,12 @@ private slots:
 
 private:
     Ui::AddCustomerWindow *ui;
+    AddCustomerAddLocation * locationDialog;
 
-    //New customer traits:
-    std::string rfc;
-    std::string name;
-    stringVector locations;
-    stringMatrix contacts; //Col 2 indicates "Direct" or "Through" location, if through,
-                            //Col 1 indicates relation to location.
-    stringMatrix phones; //Col 1 indicates relation to contact
-    stringMatrix emails; //Col 1 indicates relation to contact
+    stringMatrix * locations = new stringMatrix();
+    stringMatrix * contacts = new stringMatrix();
+    stringMatrix * phones = new stringMatrix();
+    stringMatrix * emails = new stringMatrix();
 
     bool verifyRFCUniqueness(const std::string & rfc);
     bool verifyNameUniqueness(const std::string & rfc);
