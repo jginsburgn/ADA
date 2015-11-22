@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     addcustomeraddlocation.cpp \
     addcustomeraddlocationaddcontact.cpp \
     addcustomeraddlocationaddcontactaddphone.cpp \
-    addcustomeraddlocationaddcontactaddemail.cpp
+    addcustomeraddlocationaddcontactaddemail.cpp \
+    tablemodel.cpp
 
 HEADERS  += loginwindow.h\
             Helper.h\
@@ -31,7 +32,8 @@ HEADERS  += loginwindow.h\
     addcustomeraddlocation.h \
     addcustomeraddlocationaddcontact.h \
     addcustomeraddlocationaddcontactaddphone.h \
-    addcustomeraddlocationaddcontactaddemail.h
+    addcustomeraddlocationaddcontactaddemail.h \
+    tablemodel.h
 
 FORMS    += loginwindow.ui \
     mainmenu.ui \

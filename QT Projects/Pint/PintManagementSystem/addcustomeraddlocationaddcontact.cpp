@@ -29,8 +29,9 @@ void AddCustomerAddLocationAddContact::on_addPhoneButton_clicked()
 
 void AddCustomerAddLocationAddContact::on_addEmailButton_clicked()
 {
+    stringMatrix tmpEmails;
     AddCustomerAddLocationAddContactAddEmail *
             addCustomerAddLocationAddContactAddEmail =
-            new AddCustomerAddLocationAddContactAddEmail(this);
+            new AddCustomerAddLocationAddContactAddEmail(this, &tmpEmails, "2");
     addCustomerAddLocationAddContactAddEmail->exec();
 }

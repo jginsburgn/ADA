@@ -1,6 +1,7 @@
 #ifndef ADDCUSTOMERADDLOCATIONADDCONTACT_H
 #define ADDCUSTOMERADDLOCATIONADDCONTACT_H
 
+#include "tablemodel.h"
 #include "addcustomeraddlocationaddcontactaddemail.h"
 #include "addcustomeraddlocationaddcontactaddphone.h"
 #include <QDialog>
@@ -20,9 +21,7 @@ public:
 private slots:
 
     void on_cancelButton_clicked();
-
     void on_addPhoneButton_clicked();
-
     void on_addEmailButton_clicked();
 
 private:

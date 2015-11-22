@@ -22,7 +22,7 @@ std::ostream & operator << (std::ostream & os, std::vector<T> values){
         return os;
     }
     os << "(";
-    for (int i = 0; i < values.size() - 1; ++i) {
+    for (int i = 0; i < (int)values.size() - 1; ++i) {
         os << values[i] << ", ";
     }
     os << values[values.size() - 1] << ")";

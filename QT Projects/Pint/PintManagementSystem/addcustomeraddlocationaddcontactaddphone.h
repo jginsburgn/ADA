@@ -27,8 +27,8 @@ signals:
 private:
     stringMatrix * phones;
     std::string contact;
-    Ui::AddCustomerAddLocationAddContactAddPhone *ui;
     stringMatrix kinds;
+    Ui::AddCustomerAddLocationAddContactAddPhone *ui;
 };
 
 #endif // ADDCUSTOMERADDLOCATIONADDCONTACTADDPHONE_H
