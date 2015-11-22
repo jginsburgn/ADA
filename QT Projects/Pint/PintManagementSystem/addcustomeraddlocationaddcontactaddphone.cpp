@@ -47,9 +47,6 @@ void AddCustomerAddLocationAddContactAddPhone::on_addButton_clicked()
 {
     std::vector<std::string> newPhone;
     newPhone.push_back(contact);
-    newPhone.push_back(ui->areaCodeLineEdit->text().toStdString());
-    newPhone.push_back(ui->numberLineEdit->text().toStdString());
-    newPhone.push_back(ui->extensionLineEdit->text().toStdString());
     std::string kindToReport = "";
     for (int i = 0; i < (int)kinds.size(); ++i){
         std::vector<std::string> kind = kinds.at(i);
@@ -59,9 +56,18 @@ void AddCustomerAddLocationAddContactAddPhone::on_addButton_clicked()
         }
     }
     newPhone.push_back(kindToReport);
-    std::cout << "New phone to add (contact, area code, number, ext, kind): ";
+    newPhone.push_back(ui->areaCodeLineEdit->text().toStdString());
+    newPhone.push_back(ui->numberLineEdit->text().toStdString());
+    newPhone.push_back(ui->extensionLineEdit->text().toStdString());
+    std::cout << "New phone to add (contact, kind, area code, number, ext): ";
     std::cout << newPhone;
     std::cout << std::endl;
     phones->push_back(newPhone);
+    emit CloseAndAdd();
     this->close();
+}
+
+void AddCustomerAddLocationAddContactAddPhone::on_pushButton_clicked()
+{
+    emit CloseAndAdd();
 }

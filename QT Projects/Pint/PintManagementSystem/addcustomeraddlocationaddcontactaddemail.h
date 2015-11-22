@@ -23,6 +23,7 @@ private slots:
 
 signals:
     void CloseUponConnectionFailure();
+    void CloseAndAdd();
 
 private:
     stringMatrix * emails;

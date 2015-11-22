@@ -726,6 +726,9 @@ moc_loginwindow.cpp: query.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
 		addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		addcustomeraddlocationaddcontactaddemail.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -813,6 +816,9 @@ moc_mainmenu.cpp: pintgd.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
 		addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		addcustomeraddlocationaddcontactaddemail.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -897,6 +903,9 @@ moc_addcustomerwindow.cpp: query.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
 		addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		addcustomeraddlocationaddcontactaddemail.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -905,7 +914,11 @@ moc_addcustomerwindow.cpp: query.h \
 	/Users/MacBook/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem' -I/usr/local/Cellar/libpqxx/4.0.1/include -I'/Users/MacBook/ADA/Tasks/Xcode ADA Workspace' -I'/Users/MacBook/ADA/Tasks/Xcode\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/ADA\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Workspace' -I'/Users/MacBook/ADA/Tasks/QT Projects/General Qt Code' -I'/Users/MacBook/ADA/Tasks/QT Projects/General\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Qt\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Code' -I/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/MacBook/Qt/5.5/clang_64/lib addcustomerwindow.h -o moc_addcustomerwindow.cpp
 
 moc_addcustomeraddlocation.cpp: addcustomeraddlocationaddcontact.h \
-		addcustomeraddlocationaddcontactaddemail.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QAbstractTableModel \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		pintgd.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
@@ -976,6 +989,7 @@ moc_addcustomeraddlocation.cpp: addcustomeraddlocationaddcontact.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		../../../Xcode\ ADA\ Workspace/Helper.h \
+		addcustomeraddlocationaddcontactaddemail.h \
 		query.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -983,7 +997,11 @@ moc_addcustomeraddlocation.cpp: addcustomeraddlocationaddcontact.h \
 		addcustomeraddlocation.h
 	/Users/MacBook/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/MacBook/Qt/5.5/clang_64/mkspecs/macx-clang -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem' -I/usr/local/Cellar/libpqxx/4.0.1/include -I'/Users/MacBook/ADA/Tasks/Xcode ADA Workspace' -I'/Users/MacBook/ADA/Tasks/Xcode\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/ADA\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Workspace' -I'/Users/MacBook/ADA/Tasks/QT Projects/General Qt Code' -I'/Users/MacBook/ADA/Tasks/QT Projects/General\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Qt\' -I'/Users/MacBook/ADA/Tasks/QT Projects/Pint/PintManagementSystem/Code' -I/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers -F/Users/MacBook/Qt/5.5/clang_64/lib addcustomeraddlocation.h -o moc_addcustomeraddlocation.cpp
 
-moc_addcustomeraddlocationaddcontact.cpp: addcustomeraddlocationaddcontactaddemail.h \
+moc_addcustomeraddlocationaddcontact.cpp: tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QAbstractTableModel \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		pintgd.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
@@ -1054,6 +1072,7 @@ moc_addcustomeraddlocationaddcontact.cpp: addcustomeraddlocationaddcontactaddema
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		../../../Xcode\ ADA\ Workspace/Helper.h \
+		addcustomeraddlocationaddcontactaddemail.h \
 		query.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1215,6 +1234,8 @@ moc_addcustomeraddlocationaddcontactaddemail.cpp: pintgd.h \
 
 moc_tablemodel.cpp: /Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QAbstractTableModel \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		pintgd.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
@@ -1408,6 +1429,9 @@ main.o: main.cpp loginwindow.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
 		addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		addcustomeraddlocationaddcontactaddemail.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1498,6 +1522,9 @@ loginwindow.o: loginwindow.cpp loginwindow.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
 		addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		addcustomeraddlocationaddcontactaddemail.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1586,6 +1613,9 @@ mainmenu.o: mainmenu.cpp mainmenu.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
 		addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		addcustomeraddlocationaddcontactaddemail.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1744,6 +1774,9 @@ addcustomerwindow.o: addcustomerwindow.cpp addcustomerwindow.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
 		addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		addcustomeraddlocationaddcontactaddemail.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1753,7 +1786,11 @@ addcustomerwindow.o: addcustomerwindow.cpp addcustomerwindow.h \
 
 addcustomeraddlocation.o: addcustomeraddlocation.cpp addcustomeraddlocation.h \
 		addcustomeraddlocationaddcontact.h \
-		addcustomeraddlocationaddcontactaddemail.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QAbstractTableModel \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		pintgd.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
@@ -1824,6 +1861,7 @@ addcustomeraddlocation.o: addcustomeraddlocation.cpp addcustomeraddlocation.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		../../../Xcode\ ADA\ Workspace/Helper.h \
+		addcustomeraddlocationaddcontactaddemail.h \
 		query.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -1832,7 +1870,11 @@ addcustomeraddlocation.o: addcustomeraddlocation.cpp addcustomeraddlocation.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addcustomeraddlocation.o addcustomeraddlocation.cpp
 
 addcustomeraddlocationaddcontact.o: addcustomeraddlocationaddcontact.cpp addcustomeraddlocationaddcontact.h \
-		addcustomeraddlocationaddcontactaddemail.h \
+		tablemodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QAbstractTableModel \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		pintgd.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \
@@ -1903,6 +1945,7 @@ addcustomeraddlocationaddcontact.o: addcustomeraddlocationaddcontact.cpp addcust
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/version.hxx \
 		../../../Xcode\ ADA\ Workspace/Helper.h \
+		addcustomeraddlocationaddcontactaddemail.h \
 		query.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
@@ -2067,6 +2110,8 @@ addcustomeraddlocationaddcontactaddemail.o: addcustomeraddlocationaddcontactadde
 tablemodel.o: tablemodel.cpp tablemodel.h \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QAbstractTableModel \
 		/Users/MacBook/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qabstractitemmodel.h \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QTableView \
+		/Users/MacBook/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qtableview.h \
 		pintgd.h \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/pqxx \
 		/usr/local/Cellar/libpqxx/4.0.1/include/pqxx/binarystring \

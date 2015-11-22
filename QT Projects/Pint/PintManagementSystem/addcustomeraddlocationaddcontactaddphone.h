@@ -21,8 +21,11 @@ private slots:
     void on_cancelButton_clicked();
     void on_addButton_clicked();
 
+    void on_pushButton_clicked();
+
 signals:
     void CloseUponConnectionFailure();
+    void CloseAndAdd();
 
 private:
     stringMatrix * phones;

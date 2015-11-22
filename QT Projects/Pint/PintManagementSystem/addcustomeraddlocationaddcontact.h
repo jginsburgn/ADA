@@ -19,13 +19,23 @@ public:
     ~AddCustomerAddLocationAddContact();
 
 private slots:
-
     void on_cancelButton_clicked();
     void on_addPhoneButton_clicked();
     void on_addEmailButton_clicked();
 
+public slots:
+    void PhoneAdded();
+    void EmailAdded();
+
 private:
     Ui::AddCustomerAddLocationAddContact *ui;
+    stringMatrix * emails = new stringMatrix();
+    stringMatrix * phones = new stringMatrix();
+    std::string contact = "1";
+    TableModel * phonesModel;
+    TableModel * emailsModel;
+    AddCustomerAddLocationAddContactAddEmail * emailDialog;
+    AddCustomerAddLocationAddContactAddPhone * phoneDialog;
 };
 
 #endif // ADDCUSTOMERADDLOCATIONADDCONTACT_H

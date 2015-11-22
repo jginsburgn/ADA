@@ -47,7 +47,6 @@ void AddCustomerAddLocationAddContactAddEmail::on_addButton_clicked()
 {
     std::vector<std::string> newEmail;
     newEmail.push_back(contact);
-    newEmail.push_back(ui->addressLineEdit->text().toStdString());
     std::string kindToReport = "";
     for (int i = 0; i < (int)kinds.size(); ++i){
         std::vector<std::string> kind = kinds.at(i);
@@ -57,9 +56,11 @@ void AddCustomerAddLocationAddContactAddEmail::on_addButton_clicked()
         }
     }
     newEmail.push_back(kindToReport);
-    std::cout << "New email to add (contact, address, kind): ";
+    newEmail.push_back(ui->addressLineEdit->text().toStdString());
+    std::cout << "New email to add (contact, kind, address): ";
     std::cout << newEmail;
     std::cout << std::endl;
     emails->push_back(newEmail);
+    emit CloseAndAdd();
     this->close();
 }
