@@ -22,12 +22,15 @@ public:
 private slots:
     void on_rfcLineEdit_textChanged(const QString &arg1);
     void on_nameLineEdit_textEdited(const QString &arg1);
-
     void on_addLocationButton_clicked();
+
+public slots:
+    void AddLocation();
 
 private:
     Ui::AddCustomerWindow *ui;
     AddCustomerAddLocation * locationDialog;
+    TableModel * locationsModel;
 
     stringMatrix * locations = new stringMatrix();
     stringMatrix * contacts = new stringMatrix();

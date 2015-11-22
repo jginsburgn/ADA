@@ -6,6 +6,12 @@ AddCustomerWindow::AddCustomerWindow(QWidget *parent) :
     ui(new Ui::AddCustomerWindow)
 {
     ui->setupUi(this);
+    stringVector locationHeaders;
+    locationHeaders.push_back("Address");
+    locationsModel = new TableModel(nullptr, ui->locationsTableView,
+                                    locations, locationHeaders, 0);
+    ui->locationsTableView->setModel(locationsModel);
+    ui->locationsTableView->resizeColumnsToContents();
 }
 
 AddCustomerWindow::~AddCustomerWindow()
@@ -92,6 +98,11 @@ void AddCustomerWindow::on_addLocationButton_clicked()
                                        contacts,
                                        phones,
                                        emails);
-    locationDialog->setModal(false);
-    locationDialog->show();
+    connect(locationDialog, SIGNAL(CloseAndAdd()), this, SLOT(AddLocation()));
+    locationDialog->exec();
+}
+
+void AddCustomerWindow::AddLocation() {
+    locationsModel->ReloadData();
+    ui->locationsTableView->resizeColumnsToContents();
 }

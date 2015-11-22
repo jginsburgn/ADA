@@ -16,9 +16,6 @@
   <property name="windowTitle">
    <string>Add Location</string>
   </property>
-  <property name="modal">
-   <bool>false</bool>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
