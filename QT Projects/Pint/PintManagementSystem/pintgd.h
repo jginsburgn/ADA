@@ -6,6 +6,9 @@
 #include "Helper.h"
 #include <sstream>
 
+typedef std::vector<std::vector<std::string>> stringMatrix;
+typedef std::vector<std::string> stringVector;
+
 const std::string host = "localhost";
 const std::string database = "pint";
 const std::string username = "pint";

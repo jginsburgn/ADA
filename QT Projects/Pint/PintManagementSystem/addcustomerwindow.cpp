@@ -1,6 +1,39 @@
 #include "addcustomerwindow.h"
 #include "ui_addcustomerwindow.h"
 
+/*class LocationsModel : public QAbstractTableModel {
+    Q_OBJECT
+
+public:
+    std::vector<std::string> addresses;
+
+    LocationsModel(QObject * parent) : QAbstractTableModel(parent) {
+        ReloadData();
+    }
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE {
+        return addresses.size() + 1;
+    }
+
+    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE{
+        return 1;
+    }
+
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE{
+        if (role = Qt:DisplayRole) {
+
+        }
+        return QVariant();
+    }
+
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const Q_DECL_OVERRIDE;
+    Qt::ItemFlags flags(const QModelIndex & index) const Q_DECL_OVERRIDE;
+    bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole)
+        Q_DECL_OVERRIDE;
+    void ReloadData();
+};*/
+
+
 AddCustomerWindow::AddCustomerWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::AddCustomerWindow)
@@ -79,4 +112,10 @@ bool AddCustomerWindow::verifyNameUniqueness(const std::string & rfc){
 void AddCustomerWindow::on_nameLineEdit_textEdited(const QString &arg1)
 {
     verifyNameUniqueness(arg1.toStdString());
+}
+
+void AddCustomerWindow::on_addLocationButton_clicked()
+{
+    AddCustomerAddLocation * addCustomerAddLocation = new AddCustomerAddLocation(this);
+    addCustomerAddLocation->exec();
 }

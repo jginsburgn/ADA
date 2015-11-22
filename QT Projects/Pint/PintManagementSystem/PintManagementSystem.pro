@@ -15,7 +15,11 @@ SOURCES += main.cpp\
         loginwindow.cpp \
     mainmenu.cpp \
     query.cpp \
-    addcustomerwindow.cpp
+    addcustomerwindow.cpp \
+    addcustomeraddlocation.cpp \
+    addcustomeraddlocationaddcontact.cpp \
+    addcustomeraddlocationaddcontactaddphone.cpp \
+    addcustomeraddlocationaddcontactaddemail.cpp
 
 HEADERS  += loginwindow.h\
             Helper.h\
@@ -23,11 +27,19 @@ HEADERS  += loginwindow.h\
     mainmenu.h \
     pintgd.h \
     query.h \
-    addcustomerwindow.h
+    addcustomerwindow.h \
+    addcustomeraddlocation.h \
+    addcustomeraddlocationaddcontact.h \
+    addcustomeraddlocationaddcontactaddphone.h \
+    addcustomeraddlocationaddcontactaddemail.h
 
 FORMS    += loginwindow.ui \
     mainmenu.ui \
-    addcustomerwindow.ui
+    addcustomerwindow.ui \
+    addcustomeraddlocation.ui \
+    addcustomeraddlocationaddcontact.ui \
+    addcustomeraddlocationaddcontactaddphone.ui \
+    addcustomeraddlocationaddcontactaddemail.ui
 
 CONFIG += c++11
 
