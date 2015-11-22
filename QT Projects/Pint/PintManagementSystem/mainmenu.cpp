@@ -27,3 +27,9 @@ void MainMenu::closeEvent(QCloseEvent * /*event*/) {
     //event->ignore(); /*This is to prevent closing the window*/
     emit UserLoggedOut();
 }
+
+void MainMenu::on_customerAdd_clicked()
+{
+    AddCustomerWindow * addCustomerWindow = new AddCustomerWindow(this);
+    addCustomerWindow->show();
+}

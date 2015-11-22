@@ -5,6 +5,7 @@
 #include "Helper.h"
 #include <QMainWindow>
 #include <QCloseEvent>
+#include "addcustomerwindow.h"
 
 struct SystemUser {
     std::string username;
@@ -33,6 +34,8 @@ private:
 
 protected:
     void closeEvent(QCloseEvent * event) override;
+private slots:
+    void on_customerAdd_clicked();
 };
 
 #endif // MAINMENU_H

@@ -24,7 +24,6 @@ create table entities (
 create table emails (
     id serial primary key,
     address text unique not null,
-    entity integer,
     contact integer,
     kind integer not null
 );
@@ -45,7 +44,6 @@ create table phones (
     area_code text not null,
     number text not null,
     phone_extension text,
-    entity integer,
     contact integer,
     kind integer not null
 );
@@ -176,10 +174,6 @@ add foreign key (kind)
 references entity_kinds(id);
 
 alter table emails
-add foreign key (entity)
-references entities(id);
-
-alter table emails
 add foreign key (contact)
 references contacts(id);
 
@@ -188,10 +182,6 @@ add foreign key (kind)
 references email_phone_kinds(id);
 
 alter table locations
-add foreign key (entity)
-references entities(id);
-
-alter table phones
 add foreign key (entity)
 references entities(id);
 

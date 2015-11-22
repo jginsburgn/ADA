@@ -14,17 +14,20 @@ TEMPLATE = app
 SOURCES += main.cpp\
         loginwindow.cpp \
     mainmenu.cpp \
-    query.cpp
+    query.cpp \
+    addcustomerwindow.cpp
 
 HEADERS  += loginwindow.h\
             Helper.h\
             GeneralQt.h \
     mainmenu.h \
     pintgd.h \
-    query.h
+    query.h \
+    addcustomerwindow.h
 
 FORMS    += loginwindow.ui \
-    mainmenu.ui
+    mainmenu.ui \
+    addcustomerwindow.ui
 
 CONFIG += c++11
 

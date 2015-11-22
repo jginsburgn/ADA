@@ -5,7 +5,7 @@ Query::Query(const std::string & newQuery) {
 }
 
 void Query::run(const std::string & newQuery) {
-    qry = newQuery;
+    setQuery(newQuery);
     run();
 }
 
@@ -27,4 +27,9 @@ void Query::run() {
         message = e.what();
         failed = true;
     }
+}
+
+void Query::setQuery(const string &newQuery){
+    qry = "";
+    qry = newQuery;
 }
