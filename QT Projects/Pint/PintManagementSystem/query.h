@@ -3,37 +3,19 @@
 
 #include "pintgd.h"
 
-enum operation {
-    select,
-    insert,
-    update,
-    erase
-};
-
-class query
+class Query
 {
-private:
-    std::string buildColumns();
-    std::string buildConditions();
-    std::string buildTables();
-
 public:
-    query(operation newOp) : op(newOp) {}
+    Query();
+    Query(const std::string & newQuery);
 
-    operation op;
-    std::vector<std::string> tables;
-    std::vector<std::string> columns;
-    std::vector<std::string> conditions;
-    std::string value;
-
-    bool isPersonalized;
-    std::string personalizedQuery;
-
+    std::string qry;
     bool failed;
     std::string message;
     pqxx::result r;
 
     void run();
+    void run(const std::string & newQuery);
 };
 
 #endif // QUERY_H

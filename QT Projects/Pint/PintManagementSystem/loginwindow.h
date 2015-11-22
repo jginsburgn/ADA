@@ -1,9 +1,9 @@
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
+#include "query.h"
 #include "pintgd.h"
 #include "Helper.h"
-#include <pqxx/pqxx>
 #include <QMainWindow>
 #include "mainmenu.h"
 
@@ -26,7 +26,6 @@ private slots:
 private:
     Ui::LoginWindow *ui;
     bool Login(SystemUser) const;
-    void Logout();
 };
 
 #endif // LOGINWINDOW_H

@@ -58,12 +58,17 @@ create table quotes (
     pending_date date not null,
     working_date date,
     completed_date date,
-    payment_type text not null,
     percentage_begin decimal, --Begin
     percentage_middle decimal, --Middle
     percentage_end decimal, --End
     installments integer, --Number of Installments
-    a_location integer not null -- This is a foreign key to locations
+    a_location integer not null, -- This is a foreign key to locations
+    payment_type int not null --This is a foreign key to payment_types
+);
+
+create table payment_types (
+    id serial primary key,
+    a_type text not null unique
 );
 
 create table contacts (
@@ -201,6 +206,10 @@ references email_phone_kinds(id);
 alter table quotes
 add foreign key (a_location)
 references locations(id);
+
+alter table quotes
+add foreign key (payment_type)
+references payment_types(id);
 
 alter table areas
 add foreign key (a_work)

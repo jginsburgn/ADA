@@ -9,6 +9,7 @@ drop table email_phone_kinds cascade;
 drop table locations cascade;
 drop table phones cascade;
 drop table quotes cascade;
+drop table payment_types cascade;
 drop table contacts cascade;
 drop table areas cascade;
 drop table works cascade;

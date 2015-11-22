@@ -30,28 +30,23 @@ void LoginWindow::on_loginButton_clicked()
 }
 
 bool LoginWindow::Login(SystemUser user) const{
-    std::string connDetails = "dbname=" + database + " host=" + host + " user=" +
-            username + " password = " + password;
-    try {
-        pqxx::connection conn(connDetails.c_str());
-        pqxx::work txn(conn);
-        pqxx::result res = txn.exec("select * "
-                           "from system_users "
-                           "where username=" + txn.quote(user.username)
-                           + "and a_password=" + txn.quote(user.password));
-        if (res.size() == 1) return true;
+    std::stringstream qryss;
+    qryss << "select * " <<
+           "from system_users " <<
+           "where username=" << pg::quote(user.username) <<
+           " and a_password=" << pg::quote(user.password);
+    Query qry(qryss.str());
+    if (qry.failed) {
+        ui->statusBar->showMessage(qry.message.c_str());
+        return false;
     }
-    catch (PGSTD::runtime_error e) {
-        ui->statusBar->showMessage(connectionError.c_str());
-    }
-    catch (PGSTD::logic_error e) {
-        ui->statusBar->showMessage(connectionError.c_str());
+    else {
+        if (qry.r.size() != 1) {
+            ui->statusBar->showMessage(loginFailed.c_str());
+        }
+        else return true;
     }
     return false;
-}
-
-void LoginWindow::Logout() {
-    this->setHidden(false);
 }
 
 void LoginWindow::UserLoggedOut() {

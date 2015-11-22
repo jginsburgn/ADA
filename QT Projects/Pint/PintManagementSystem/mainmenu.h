@@ -3,7 +3,6 @@
 
 #include "pintgd.h"
 #include "Helper.h"
-#include <pqxx/pqxx>
 #include <QMainWindow>
 #include <QCloseEvent>
 

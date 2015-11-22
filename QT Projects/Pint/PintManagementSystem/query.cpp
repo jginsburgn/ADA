@@ -1,45 +1,30 @@
 #include "query.h"
 
-query::query()
-{
-    op = insert;
+Query::Query(const std::string & newQuery) {
+    run(newQuery);
 }
 
-void query::run() {
+void Query::run(const std::string & newQuery) {
+    qry = newQuery;
+    run();
+}
+
+void Query::run() {
     std::string connDetails = "dbname=" + database + " host=" + host + " user=" +
             username + " password = " + password;
     try {
         pqxx::connection conn(connDetails.c_str());
         pqxx::work txn(conn);
-        if (isPersonalized){
-
-        }
-        else if (op == insert) {
-
-        }
-        else if (op == select) {
-            r = txn.exec("select * "
-                                        "from system_users "
-                                        "where username=" + txn.quote(user.username)
-                                        + "and a_password=" + txn.quote(user.password));
-        }
-        else if (op == update) {
-
-        }
-        else if (op == erase) {
-
-        }
+        Helper::print("Executing query: " + qry + ";");
+        r = txn.exec(qry);
         failed = false;
     }
     catch (PGSTD::runtime_error e) {
-        message = connectionError;
+        message = e.what();
+        failed = true;
     }
     catch (PGSTD::logic_error e) {
-        message = connectionError;
+        message = e.what();
+        failed = true;
     }
 }
-
-/*
-
-    return false;
- * /
