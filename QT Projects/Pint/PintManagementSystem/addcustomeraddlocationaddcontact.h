@@ -15,27 +15,39 @@ class AddCustomerAddLocationAddContact : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddCustomerAddLocationAddContact(QWidget *parent = 0);
+    explicit AddCustomerAddLocationAddContact(QWidget *parent,
+                                              stringMatrix * emails,
+                                              stringMatrix * phones,
+                                              stringMatrix * contacts,
+                                              std::string location);
     ~AddCustomerAddLocationAddContact();
 
 private slots:
     void on_cancelButton_clicked();
     void on_addPhoneButton_clicked();
     void on_addEmailButton_clicked();
+    void on_addButton_clicked();
 
 public slots:
     void PhoneAdded();
     void EmailAdded();
 
+signals:
+    void CloseAndAdd();
+
 private:
     Ui::AddCustomerAddLocationAddContact *ui;
-    stringMatrix * emails = new stringMatrix();
-    stringMatrix * phones = new stringMatrix();
-    std::string contact = "1";
+    stringMatrix * displayPhones = new stringMatrix();
+    stringMatrix * displayEmails = new stringMatrix();
     TableModel * phonesModel;
     TableModel * emailsModel;
     AddCustomerAddLocationAddContactAddEmail * emailDialog;
     AddCustomerAddLocationAddContactAddPhone * phoneDialog;
+
+    stringMatrix * emails;
+    stringMatrix * phones;
+    stringMatrix * contacts;
+    std::string location;
 };
 
 #endif // ADDCUSTOMERADDLOCATIONADDCONTACT_H
