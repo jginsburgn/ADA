@@ -150,7 +150,7 @@ create table entities_contacts (
 );
 
 create table locations_contacts (
-    ¡d serial primary key,
+    id serial primary key,
     a_location integer not null, --This is a foreign key to locations
     contact integer not null
 );

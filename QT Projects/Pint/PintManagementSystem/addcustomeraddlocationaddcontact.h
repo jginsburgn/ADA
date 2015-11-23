@@ -48,6 +48,7 @@ private:
     stringMatrix * phones;
     stringMatrix * contacts;
     std::string location;
+    std::string thisContact;
 };
 
 #endif // ADDCUSTOMERADDLOCATIONADDCONTACT_H

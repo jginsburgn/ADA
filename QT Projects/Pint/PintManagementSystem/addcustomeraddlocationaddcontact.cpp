@@ -16,6 +16,7 @@ AddCustomerAddLocationAddContact::AddCustomerAddLocationAddContact(QWidget *pare
     this->phones = phones;
     this->contacts = contacts;
     this->location = location;
+    thisContact = Helper::intToString(contacts->size());
 
     stringVector phonesHeaders;
     phonesHeaders.push_back("Area code");
@@ -48,7 +49,7 @@ void AddCustomerAddLocationAddContact::on_cancelButton_clicked()
 void AddCustomerAddLocationAddContact::on_addPhoneButton_clicked()
 {
     phoneDialog = new AddCustomerAddLocationAddContactAddPhone(this, phones,
-                                                               Helper::intToString(contacts->size()));
+                                                               thisContact);
     connect(phoneDialog, SIGNAL(CloseAndAdd()), this, SLOT(PhoneAdded()));
     phoneDialog->exec();
 }
@@ -56,7 +57,7 @@ void AddCustomerAddLocationAddContact::on_addPhoneButton_clicked()
 void AddCustomerAddLocationAddContact::on_addEmailButton_clicked()
 {
     emailDialog = new AddCustomerAddLocationAddContactAddEmail(this, emails,
-                                                               Helper::intToString(contacts->size()));
+                                                               thisContact);
     connect(emailDialog, SIGNAL(CloseAndAdd()), this, SLOT(EmailAdded()));
     emailDialog->exec();
 }

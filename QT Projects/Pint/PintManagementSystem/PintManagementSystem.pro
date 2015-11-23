@@ -20,7 +20,10 @@ SOURCES += main.cpp\
     addcustomeraddlocationaddcontact.cpp \
     addcustomeraddlocationaddcontactaddphone.cpp \
     addcustomeraddlocationaddcontactaddemail.cpp \
-    tablemodel.cpp
+    tablemodel.cpp \
+    addcustomeraddcontact.cpp \
+    addcustomeraddcontactaddphone.cpp \
+    addcustomeraddcontactaddemail.cpp
 
 HEADERS  += loginwindow.h\
             Helper.h\
@@ -33,7 +36,10 @@ HEADERS  += loginwindow.h\
     addcustomeraddlocationaddcontact.h \
     addcustomeraddlocationaddcontactaddphone.h \
     addcustomeraddlocationaddcontactaddemail.h \
-    tablemodel.h
+    tablemodel.h \
+    addcustomeraddcontact.h \
+    addcustomeraddcontactaddphone.h \
+    addcustomeraddcontactaddemail.h
 
 FORMS    += loginwindow.ui \
     mainmenu.ui \
@@ -41,7 +47,10 @@ FORMS    += loginwindow.ui \
     addcustomeraddlocation.ui \
     addcustomeraddlocationaddcontact.ui \
     addcustomeraddlocationaddcontactaddphone.ui \
-    addcustomeraddlocationaddcontactaddemail.ui
+    addcustomeraddlocationaddcontactaddemail.ui \
+    addcustomeraddcontact.ui \
+    addcustomeraddcontactaddphone.ui \
+    addcustomeraddcontactaddemail.ui
 
 CONFIG += c++11
 

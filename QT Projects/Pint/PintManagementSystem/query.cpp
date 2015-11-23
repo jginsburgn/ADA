@@ -17,6 +17,7 @@ void Query::run() {
         pqxx::work txn(conn);
         Helper::print("Executing query: " + qry + ";");
         r = txn.exec(qry);
+        txn.commit();
         failed = false;
     }
     catch (PGSTD::runtime_error e) {

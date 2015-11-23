@@ -16,17 +16,19 @@ AddCustomerAddLocation::AddCustomerAddLocation(QWidget * parent,
     this->contacts = contacts;
     this->phones = phones;
     this->emails = emails;
+    thisLocation = Helper::intToString(locations->size());
 
     stringVector headers;
     headers.push_back("Name");
     headers.push_back("Surnames");
-    contactsModel = new TableModel(nullptr, ui->contactsTableView, contacts, headers, 2);
+    contactsModel = new TableModel(nullptr, ui->contactsTableView, displayContacts, headers, 2);
     ui->contactsTableView->setModel(contactsModel);
     ui->contactsTableView->resizeColumnsToContents();
 }
 
 AddCustomerAddLocation::~AddCustomerAddLocation()
 {
+    delete displayContacts;
     delete contactsModel;
     delete ui;
 }
@@ -42,13 +44,14 @@ void AddCustomerAddLocation::on_addContactButton_clicked()
                                                             emails,
                                                             phones,
                                                             contacts,
-                                                            Helper::intToString(contacts->size()));
+                                                            thisLocation);
     connect(addContactDialog, SIGNAL(CloseAndAdd()), this, SLOT(AddContact()));
     addContactDialog->exec();
 }
 
 void AddCustomerAddLocation::AddContact() {
     addContactDialog = nullptr;
+    displayContacts->push_back(contacts->at(contacts->size() - 1));
     contactsModel->ReloadData();
     ui->contactsTableView->resizeColumnsToContents();
 }

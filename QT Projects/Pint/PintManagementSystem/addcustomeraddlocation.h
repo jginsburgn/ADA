@@ -39,6 +39,8 @@ private:
     stringMatrix * phones;
     stringMatrix * emails;
     stringMatrix * locations;
+    std::string thisLocation;
+    stringMatrix * displayContacts = new stringMatrix();
 };
 
 #endif // ADDCUSTOMERADDLOCATION_H
